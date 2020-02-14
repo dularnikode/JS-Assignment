@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>TODO | Do not forget</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css"> 
+        <link rel="stylesheet" href="../css/signup.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Pacifico|Poppins:300,400,500,700&display=swap');
+        </style>
+    </head>
+    <body>
+        <header class="header-wrapper">
+            <h2 class="heading-logo">TODO </h2>
+            <div class="clear"></div>
+        </header>
+        <section class="section-one-wrapper section-signup">
+            <div class="profile-page">
+                <form action="#" method="POST">
+                    <label >First Name</label>
+                    <input class="input-username" type="text" id="fname" required>
+                    <label>Last Name</label>
+                    <input class="input-password" type="pasword" id="lname" required>
+                    <label >Username/Email</label>
+                    <input class="input-username" type="text" id="username" required>
+                    <label>Password</label>
+                    <input class="input-password" type="text" id="password" required>
+                        <label>Gender</label>
+                        <div>
+                            <input class="radio-input" type="radio" id="male" value="Male">
+                            <label class="radio-input">Male</label class>
+                            <input class="radio-input" type="radio" id="female" value="Female">
+                            <label class="radio-input">Female</label>
+                            <div class="clear"></div>
+                        </div>
+                    <label>Address</label>
+                    <input type="text-field" placeholder="Address" id="address">
+                    <div>
+                        <label>Profile photo</label>
+                        <input type="file" id="profilephoto" required>
+                    </div>
+                    <input class="input-save" type="submit" value="Sign Up" onclick="submitk()">
+                </form>
+            </div>
+        </section>
+        <script src="../javascript/function-sign-up.js"></script>
+
+        <footer class="footer"></footer class="footer">
+    </body>
+</html>

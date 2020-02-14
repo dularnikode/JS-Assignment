@@ -1,0 +1,30 @@
+.section-login{
+    background-color: #781236;
+}
+
+
+
+.login-page{
+width:30%;
+padding:30px 40px;
+background-color:#456213 ;
+margin:0px auto;
+border-radius: 10px;
+}
+
+
+
+
+.input-password{
+
+}
+.input-username{
+
+}
+
+.input-login{
+width:40%;
+background-color:#a5e439;
+border:none;
+border-radius: 5px;
+}

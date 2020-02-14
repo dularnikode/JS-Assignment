@@ -1,0 +1,41 @@
+
+li{
+    border-bottom: 2px solid black;
+    margin-bottom:5px;
+    padding:5px;
+}
+
+
+.profile-wrapper{
+    position: relative;
+    width:auto;
+}
+
+.profile{
+    border-radius: 50%;
+    border:3px solid royalblue;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    float:left;
+}
+
+.profile-wrapper:hover .profile-list{
+    display:block;
+}
+
+.profile-list{
+    display:none;
+    position: absolute;
+    width:100px;
+    top:50px;
+    right:40px;
+    border: 1px solid red;
+}
+
+
+.anchor{
+    myprofile{
+
+    }
+}

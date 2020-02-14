@@ -1,0 +1,45 @@
+.section-signup{
+    background-color:grey;
+}
+.signup-page{
+width:50%;
+background-color:#baec63 ;
+padding:50px 30px;
+margin:0px auto;
+border-radius: 10px;
+}
+
+
+.profile-photo{
+    background-color: black;
+    width: 120px;
+    height:150px;
+    margin-bottom: 5px;
+}
+
+.input-password{
+    
+
+}
+.input-username{
+
+}
+
+.input-save{
+width:40%;
+background-color:#96c93e;
+border:none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.gender{
+    text-align: left;
+    
+}
+.radio-input{
+    display: inline-block;
+    width:auto;
+    height:auto;
+    font-size: 20px;
+}
