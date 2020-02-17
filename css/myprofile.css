@@ -1,0 +1,38 @@
+.section-myprofile{
+    background-image: url(../images/nWHPe3g-space-wallpaper-1366x768.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.profile-photo{
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    padding:5px;
+    background-color: black;
+}
+
+
+.profile-page{
+    width:70%;
+    background-color:rgba(60,44,100,0.7);
+    padding:50px 100px;
+    margin:0px auto;
+    border-radius: 10px;    
+}
+
+.name-container{
+    float: right;
+    width:50%;]
+    padding:0px 10px;
+}
+
+.input-edit{
+width:20%;
+background-color:#96c93e;
+border:none;
+border-radius: 5px;
+cursor: pointer;
+text-align: center;
+}
