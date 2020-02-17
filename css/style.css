@@ -38,6 +38,10 @@ label{
     clear: both;
 }
 
+.error{
+    color:red;
+}
+
 /*header*/
 
 .heading-logo{

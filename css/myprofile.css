@@ -24,7 +24,7 @@
 
 .name-container{
     float: right;
-    width:50%;]
+    width:50%;
     padding:0px 10px;
 }
 
@@ -35,4 +35,8 @@ border:none;
 border-radius: 5px;
 cursor: pointer;
 text-align: center;
+}
+
+.rem-details{
+    margin-top:40px;
 }

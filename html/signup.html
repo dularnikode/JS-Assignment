@@ -11,32 +11,33 @@
     <body>
         <header class="header-wrapper">
             <h2 class="heading-logo">TODO </h2>
+            <div class="head-button-container">
+
+                <a href="login.html"><button class="com-button button-login-signup">Login</button></a>
+            </div>
             <div class="clear"></div>
         </header>
         <section class="section-one-wrapper section-signup">
             <div class="signup-page">
                 <form action="#" method="POST">
-                    <label >First Name</label>
-                    <input class="input-username" type="text" id="fname" required>
+                    <label>First Name</label>
+                    <input type="text" id="fname" required>
                     <label>Last Name</label>
-                    <input class="input-password" type="pasword" id="lname" required>
-                    <label >Username/Email</label>
-                    <input class="input-username" type="text" id="username" required>
+                    <input type="text" id="lname" required>
+                    <label>Username/Email</label>
+                    <input type="text" id="username" placeholder="Enter Username" required>
                     <label>Password</label>
-                    <input class="input-password" type="text" id="password" required>
+                    <input type="password" id="password" placeholder="Enter Password" >
                         <label>Gender</label>
-                        <div>
-                            <input class="radio-input" type="radio" id="male" value="Male">
-                            <label class="radio-input">Male</label class>
-                            <input class="radio-input" type="radio" id="female" value="Female">
-                            <label class="radio-input">Female</label>
-                            <div class="clear"></div>
-                        </div>
+                        <input class="radio-input" type="radio" id="male" name="gender" value="Male">
+                        <label class="radio-input" for="male">Male</label class>
+                        <input class="radio-input" type="radio" id="female" name="gender" value="Female">
+                        <label class="radio-input" for="female">Female</label>
                     <label>Address</label>
                     <input type="text-field" placeholder="Address" id="address">
                     <div>
                         <label>Profile photo</label>
-                        <input type="file" id="profilephoto" required>
+                        <input type="file" id="profilephoto">
                     </div>
                     <input class="input-save" type="submit" value="Sign Up" onclick="submitk()">
                 </form>

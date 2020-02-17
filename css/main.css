@@ -35,7 +35,70 @@ li{
 
 
 .anchor{
-    myprofile{
 
-    }
+}
+
+.main-container{
+    width:70%;
+    background-color:rgba(177, 97, 116, 0.7);
+    margin:0px auto;
+    height:500px;
+}
+
+.header-list{
+    width:100%;
+    height:50px;
+    background-color: blueviolet;
+    top:0px;
+    padding:10px 10px
+}
+
+.filter-label{
+    width:30px;
+    line-height: 30px;
+    margin:0px;
+}
+
+
+.input-filter{
+width:70px;
+font-size: 18px;
+float: left;
+margin:0px 5px;    
+height:30px;
+}
+
+.table-container{
+    padding:30px;
+    margin:0px auto;
+}
+
+.todo-add-button{
+    width:100px;
+    height:30px;
+    float:right;
+}
+
+
+tr{
+    border-bottom: 2px solid red;
+    background-color: aqua;
+}
+th{
+    background-color:black;
+    color:white;
+}
+
+
+td,th{
+    padding:20px;
+}
+
+.button-edit, .button-del{
+    padding:5px;
+    margin:5px 0px;
+}
+.checkbox{
+    width:20px;
+    height:20px;
 }

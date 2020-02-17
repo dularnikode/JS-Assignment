@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>TODO | Do not forget</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css"> 
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/addtodo.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Pacifico|Poppins:300,400,500,700&display=swap');
+        </style>
+    </head>
+    <body>
+        <header class="header-wrapper">
+            <h2 class="heading-logo">TODO </h2>
+            <div class="head-button-container profile-wrapper">
+                
+                <img id="profile" class="profile" src="../images/default_user.jpg">
+                <ul class="profile-list">
+                    <a href="myprofile.html"><li>My Profile</li></a>
+                    <a href="main.html"><li>My Todo</li></a>
+                    <a href="login.html"><li>Logout</li></a>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </header>
+        <section class="section-one-wrapper">
+            <div class="new-todo-container">
+                <form>
+                    <label>Title</label>
+                    <input id="title" type="text">
+                    <label>Category</label>
+                    <select id ="category" class="category-selection">                            
+                        <option>Office</option>
+                        <option>Personal</option>
+                        <option>Social</option>
+                    </select>
+                    <label>Description</label>
+                    <input type="text" id="des">
+                    <label>Start Date</label>                        
+                    <input type="date" id="sdate">
+                    <label>Due Date</label>
+                    <input type="date" id="ddate">
+                    <button class="com-button" onclick="addtodo()">Save</button>
+                </form>
+            </div>
+        </section>
+        <script src="../javascript/adding-todo.js"></script>
+        <footer class="footer"></footer class="footer">
+    </body>
+</html>

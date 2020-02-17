@@ -20,24 +20,28 @@
             <div class="profile-page">
                 <form action="#" method="POST">
                 
-                    <img class="profile-photo" src="../images/default_user.jpg" alt="default_user">
+                    <img  id="profilepic"class="profile-photo" src="../images/default_user.jpg" alt="default_user">
                     <div class="name-container">
                         <label >First Name</label>
-                        <input class="input-username" type="text" id="fname" required>
+                        <input id="fname" type="text">
                         <label>Last Name</label>
-                        <input class="input-password" type="pasword" id="lname" required>
+                        <input id="lname" type="text">
                     </div>
-                    <label >Username/Email</label>
-                    <input class="input-username" type="text" id="username" required>
-                    <label>Password</label>
-                    <input class="input-password" type="text" id="password" required>
+                    <div class="rem-details">
+                        <label >Username/Email</label>
+                        <input id="username" class="input-username" type="text">
+                        <label>Password</label>
+                        <input id="password" class="input-password" type="text">
                         <label>Gender</label>
-                    
-                    <input class="input-edit" type="edit" value="Edit" onclick="submitk()">
+                        <input id="gender" type="text">
+                        <label >Address</label>
+                        <input id="address" type="text">
+                    </div>
+                    <input class="input-edit" type="edit" value="Edit">
                 </form>
             </div>
         </section>
-        <script src="../javascript/function-sign-up.js"></script>
+        <script src="../javascript/my-profile.js"></script>
 
         <footer class="footer"></footer class="footer">
     </body>

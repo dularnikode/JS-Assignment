@@ -16,18 +16,9 @@ border-radius: 10px;
     height:150px;
     margin-bottom: 5px;
 }
-
-.input-password{
-    
-
-}
-.input-username{
-
-}
-
 .input-save{
 width:40%;
-background-color:#96c93e;
+background-color:skyblue;
 border:none;
 border-radius: 5px;
 cursor: pointer;
@@ -43,3 +34,4 @@ cursor: pointer;
     height:auto;
     font-size: 20px;
 }
+
