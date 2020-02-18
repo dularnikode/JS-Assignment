@@ -1,13 +1,8 @@
-.section-login{
-    background-color: #781236;
-}
-
-
 
 .login-page{
 width:30%;
 padding:30px 40px;
-background-color:#456213 ;
+background-color:rgb(30, 189, 189);
 margin:0px auto;
 border-radius: 10px;
 }
@@ -24,7 +19,12 @@ border-radius: 10px;
 
 .input-login{
 width:40%;
-background-color:#a5e439;
 border:none;
 border-radius: 5px;
+font-weight: 300;
 }
+
+.no-account{
+    margin-top:10px;
+}
+

@@ -8,7 +8,16 @@ let userName=document.getElementById("username").value;
 let password=document.getElementById("password").value;
 let address=document.getElementById("address").value;
 let profileImage=document.getElementById("profilephoto").value;
-let gender=document.getElementById("male").value || document.getElementById("female").value;
+
+let gender;
+let fem=document.getElementById("male").value;
+let mal=document.getElementById("female").value;;
+if(fem=true){
+    gender=fem;
+}
+else{
+    gender=male;
+}
 console.log(firstName,lastName,address,userName,password,profileImage,gender);
 
 let user={

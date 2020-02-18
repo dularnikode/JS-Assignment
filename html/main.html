@@ -27,30 +27,35 @@
             <div class="main-container">
                 <div class="header-list">
                     <form>
-                        <label class="input-filter filter-label">from:</label>
+                        <!-- <label class="input-filter filter-label">from:</label>
                         <input class="input-filter " type="date">
                         <label class="input-filter filter-label">to:</label>
-                        <input class="input-filter" type="date">
-                        <select>
-                            <option>All</option>
-                            <option>Personal</option>
-                            <option>Socail</option>
-                            <option>Office</option>
+                        <input class="input-filter" type="date"> -->
+                        <select id="filter" class="filter" onclick="classFilter()">
+                            <option value="All">All</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Social">Social</option>
+                            <option value="Office">Office</option>
                         </select>
-                        <a href="addtodo.html"><input class="todo-add-button" type="button" value="Add Todo"></a>                    
+                        <a href="addtodo.html"><input class="todo-add-button" type="button" value="Add Todo"></a>
+                        <!-- <button class="todo-add-button" onclick="editToDo()">Edit</button> -->
+                        <button class="todo-add-button" onclick="deleteToDo()">Delete</button>               
                     </form>
                 </div>
-                <div class="card-container" > 
-                    <table class="table-container" id="todotable">
-                        <tr>
-                            <th>Checkbox</th>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th>Description</th>
-                            <th>Start date</th>
-                            <th>Due Date</th>
-                            <th>Action</th>
-                        </tr>
+                <div class="card-container"> 
+                    <table class="table-container">
+                            <tr>
+                                <th>Checkbox</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Start date</th>
+                                <th>Due Date</th>
+                                <th>Action</th>
+                            </tr>
+                        <tbody id="todotable"></tbody>
+                            
                     </table>
                 </div>
             </div>

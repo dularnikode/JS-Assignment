@@ -8,12 +8,14 @@ function login(){
     {
         //alert("sucessfully loged in");
         console.log("sucessful");
+        sessionStorage.setItem('userid',uid);
         window.location="../html/main.html";
+
     }
     else
     {   
         console.log("unsucessfull");
-    }    
-    sessionStorage.setItem('userid',uid);
+        document.getElementById("error").innerHTML="Incorrect username/password";
+    }
 }
 

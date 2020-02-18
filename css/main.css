@@ -37,18 +37,22 @@ li{
 .anchor{
 
 }
-
+.filter{
+    height:30px;
+    border:none;
+    font-size: 18px;
+}
 .main-container{
     width:70%;
     background-color:rgba(177, 97, 116, 0.7);
     margin:0px auto;
-    height:500px;
+    padding-bottom:30px;
 }
 
 .header-list{
     width:100%;
     height:50px;
-    background-color: blueviolet;
+    background-color:#2668aa;
     top:0px;
     padding:10px 10px
 }
@@ -71,18 +75,27 @@ height:30px;
 .table-container{
     padding:30px;
     margin:0px auto;
+    border:2px solid black;
+
 }
 
 .todo-add-button{
     width:100px;
     height:30px;
+    border-radius: 5px;
     float:right;
+    margin:0px 5px;
+    border:none;
+    
 }
 
-
 tr{
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid black;
     background-color: aqua;
+}
+
+tr:last-child{
+    border-bottom: 0px;
 }
 th{
     background-color:black;
@@ -91,7 +104,7 @@ th{
 
 
 td,th{
-    padding:20px;
+    padding:10px;
 }
 
 .button-edit, .button-del{
