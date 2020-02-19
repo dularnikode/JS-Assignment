@@ -1,21 +1,51 @@
 
-function login(){
+function login(){ 
     let uid=document.getElementById("username").value;
-    let pass=document.getElementById("password").value;
-    let user=JSON.parse(localStorage.getItem(uid));
-    
-    if(user.userNames==uid && user.passwords==pass)
-    {
-        //alert("sucessfully loged in");
-        console.log("sucessful");
-        sessionStorage.setItem('userid',uid);
-        window.location="../html/main.html";
-
+    let pass=document.getElementById("password").value;   
+    let errorMessage="";
+    try{
+        let user=JSON.parse(localStorage.getItem(uid));
+        if(user.userNames==uid && user.passwords==pass)
+        {
+            //alert("sucessfully loged in");
+            document.getElementById('error').innerHTML=errorMessage;
+            alert(`${uid} you logged in sucessfully`);
+            sessionStorage.setItem('userid',uid);
+            window.location.href="../html/main.html";
+        }
+        else{
+            document.getElementById("error").innerHTML="Incorrect Username/Password";
+        }
     }
-    else
-    {   
+    catch(err){
         console.log("unsucessfull");
-        document.getElementById("error").innerHTML="Incorrect username/password";
+        document.getElementById("error").innerHTML="Incorrect Username/Password";    
+    } 
+    finally{
+        function checkup(){
+            if(checknull(uid)==true || checknull(pass)==true){
+                return false;
+            }
+        }
+        if(checkup()==false){
+            errorMessage="username or password can't be empty";
+        }
+        else{
+            errorMessage="Incorrect Username/Password";
+        }
+        document.getElementById("error").innerHTML=errorMessage;
     }
 }
-
+// function checkup(){
+//     if(checknull(uid)==true || checknull(pass)==true){
+//         return false;
+//     }
+// }
+function checknull(entry){
+    if(entry==''){
+        return true;
+    }
+    else{
+        return false;
+    }
+}

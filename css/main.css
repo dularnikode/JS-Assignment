@@ -1,11 +1,13 @@
 
 li{
-    border-bottom: 2px solid black;
     margin-bottom:5px;
+    background-color: #2668aa;
     padding:5px;
 }
 
-
+li:hover{
+   box-shadow:0 0 3px #2668aa; 
+}
 .profile-wrapper{
     position: relative;
     width:auto;
@@ -27,14 +29,17 @@ li{
 .profile-list{
     display:none;
     position: absolute;
-    width:100px;
-    top:50px;
-    right:40px;
-    border: 1px solid red;
+    width:150px;
+    top: 0px;
+    padding-top: 70px;
+    right: 25px;
 }
 
 
 .anchor{
+    color:white ;
+    text-decoration: none;
+    background-color: teal;
 
 }
 .filter{
@@ -104,7 +109,8 @@ th{
 
 
 td,th{
-    padding:10px;
+    padding:15px;
+    text-align: center;
 }
 
 .button-edit, .button-del{

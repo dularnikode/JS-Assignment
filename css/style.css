@@ -15,23 +15,26 @@ body{
 section{
     padding:100px 0px;
     margin:0px auto;
+    /* background-color:#cccccc; */
 }
 
 input{
     height:40px;
     font-size: 20px;
     display: block;
-    margin-bottom:20px;
+    margin-bottom:3px;
     width: 100%;
     font-size: 18px;
     border-radius: 5px;
     border: none;
     padding-left:5px;
 }
+
 label{
     display:block;
     margin-bottom:5px;
     font-size: 20px;
+    margin-top:20px;
 }
 
 .clear{

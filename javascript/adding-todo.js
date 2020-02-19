@@ -13,20 +13,37 @@ function addtodo(){
         Start:start,
         Due:due,
     };
-    let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
-    user.todotask.push(todoObj);
-    localStorage.setItem(sessionStorage.getItem('userid'),JSON.stringify(user));
-
-    let gotoMain=confirm("Add New Todo ?");
-    if (gotoMain==true){
-        window.location="../html/addtodo.html";
+    if(title==""){
+      alert("*Please fill required details");  
     }
     else{
-        window.location="../html/main.html";
+        let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
+        user.todotask.push(todoObj);
+        localStorage.setItem(sessionStorage.getItem('userid'),JSON.stringify(user));
+        alert("Todo added Sucessfully");
+        let gotoMain=confirm("Add Another Todo?");
+        if (gotoMain==true){
+            window.location.href="../html/addtodo.html";
+        }
+        else{
+            window.location.href="../html/main.html";
+        }
     }
 }
 
-function clear(){
+
+function validDate(){
+    let start=document.getElementById("sdate").value;
+    let due=document.getElementById("ddate").value;
+    let message=document.getElementById("errdue");
+    message.innerHTML="";
+    if(start>due && start!="" && due!=""){
+        message.innerHTML=`Due date should be greather than start date : ${start}`;
+    }
+}
+
+
+function clearLog(){
     sessionStorage.clear();
 }
 function showtodo(){
@@ -55,29 +72,10 @@ function showtodo(){
     }
 }
 
-document.addEventListener('DOMContentLoaded',showtodo());
-
-/*
-function editToDo(i){
-    window.location="../html/addtodo.html";
-    let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
-    console.log(user);
-    let arr=user.todotask;
-    document.getElementById("title").value=user.todotask[i].Title;
-    document.getElementById("category").value=user.todotask[i].Category;
-    document.getElementById("des").value=user.todotask[i].Description;
-    document.getElementById("sdate").value=arr[i].Start;
-    document.getElementById("ddate").value=arr[i].Due;
-
-    addtodo();
-}
-*/
-
-
 function editToDo(i){
 
     let index=sessionStorage.setItem('index',i);
-    window.location="../html/edittodo.html";
+    window.location.href="../html/edittodo.html";
 
 }
 
@@ -113,7 +111,7 @@ function classFilter(){
     let i;
     let todoTable=document.getElementById('todotable');
     todoTable.innerHTML="";
-    if(filterClass=='Personal'  || filterClass=='Social' || 'Office')
+    if(filterClass=='Personal'  || filterClass=='Social' ||filterClass=='Office')
     {
         for(i=0;i<arr.length;i++)
         {
@@ -136,7 +134,7 @@ function classFilter(){
             }       
         }
     }
-    else if(filterClass=='All'){
+    else{
         showtodo();
     }
 }

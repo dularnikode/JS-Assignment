@@ -12,23 +12,21 @@
         <header class="header-wrapper">
             <h2 class="heading-logo">TODO </h2>
             <div class="head-button-container">
-
-                <a href="login.html"><button class="com-button button-login-signup">Login</button></a>
-                <a href="signup.html"><button class="com-button button-login-signup">Sign-Up</button></a>
+                <a href="signup.html"><button class="com-button button-login-signup">SIGNUP</button></a>
             </div>
             <div class="clear"></div>
         </header>
         <section class="section-one-wrapper section-login">
             <div class="login-page">
-                <form action="#" method="get">
-                    <label>Username/Email</label>
-                    <input class="input-username" type="text" id="username">
+                <form action="#" onsubmit="return false">
+                    <label for="username">Username</label>
+                    <input class="input-username" type="text" id="username" name="username" required >
                     <label>Password</label>
-                    <input class="input-password"type="pasword" id="password">
+                    <input class="input-password" type="password" id="password" name="password" required>
                     <p id="error" class="error"></p>
-                    <button class="com-button input-login" onclick="login()">Login</button>
+                    <input type="submit" class="com-button input-login" value="Login" onclick="login()">
                 </form>
-                <p class="no-account">Don't have an account ?<span><a href="signup.html">Sign Up</a><span></p>
+                <p class="no-account">Don't have an account ?<span><a href="signup.html">Sign Up</a></span></p>
             </div>
         </section>
         <script src="../javascript/login-todo.js"></script>

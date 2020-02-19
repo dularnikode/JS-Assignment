@@ -8,5 +8,10 @@
 .category-selection{
     width:50%;
     height:40px;
-    margin:15px 0px;
+    margin-bottom: 15px;
+}
+
+.save-todo{
+    margin-top:15px;
+    width:35%;
 }

@@ -22,6 +22,16 @@ function saveEdited(){
     alert("Edited Sucessfully");
     let a=confirm("Go to MY TODO");
     if(a==true){
-        window.history(-1);
+        window.location.href="../html/main.html";
+    }
+}
+
+function validDate(){
+    let start=document.getElementById("sdate").value;
+    let due=document.getElementById("ddate").value;
+    let message=document.getElementById("errdue");
+    message.innerHTML="";
+    if(start>due){
+        message.innerHTML=`Due date should be greather than start date : ${start}`;
     }
 }

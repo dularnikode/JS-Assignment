@@ -16,20 +16,20 @@
                 
                 <img id="profile" class="profile" src="../images/default_user.jpg">
                 <ul class="profile-list">
-                    <a href="myprofile.html"><li>My Profile</li></a>
-                    <a href="main.html"><li>My Todo</li></a>
-                    <a href="login.html"><li>Logout</li></a>
+                    <a class="anchor" href="myprofile.html"><li>My Profile</li></a>
+                    <a class="anchor" href="main.html"><li>My Todo</li></a>
+                    <a class="anchor" href="login.html" onclick="clearLog()"><li >Logout</li></a>
                 </ul>
             </div>
             <div class="clear"></div>
         </header>
         <section class="section-one-wrapper">
             <div class="new-todo-container">
-                <form>
-                    <label>Title</label>
-                    <input id="title" type="text">
-                    <label>Category</label>
-                    <select id ="category" class="category-selection">                            
+                <form action="#" method="POST">
+                    <label><span class="error">*</span>Title</label>
+                    <input id="title" type="text" required>
+                    <label for="category">Category</label>
+                    <select id="category" class="category-selection">                            
                         <option>Office</option>
                         <option>Personal</option>
                         <option>Social</option>
@@ -43,10 +43,11 @@
                         <option>Done</option>
                     </select>
                     <label>Start Date</label>                        
-                    <input type="date" id="sdate">
+                    <input type="date" id="sdate" oninput="validDate()">
                     <label>Due Date</label>
-                    <input type="date" id="ddate">
-                    <button class="com-button" onclick="addtodo()">Save</button>
+                    <input type="date" id="ddate" oninput="validDate()">
+                    <span id="errdue" class="error"></span>
+                    <input type="button" class="com-button save-todo" onclick="addtodo()" value="Save">
                 </form>
             </div>
         </section>

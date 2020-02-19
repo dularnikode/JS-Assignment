@@ -12,39 +12,47 @@
         <header class="header-wrapper">
             <h2 class="heading-logo">TODO </h2>
             <div class="head-button-container">
-
                 <a href="login.html"><button class="com-button button-login-signup">Login</button></a>
             </div>
             <div class="clear"></div>
         </header>
         <section class="section-one-wrapper section-signup">
             <div class="signup-page">
+                <h2 class="reg-details">Register your details<h2>
                 <form action="#" method="POST">
-                    <label>First Name</label>
-                    <input type="text" id="fname" minlength="3" required>
-                    <label>Last Name</label>
-                    <input type="text" id="lname" minlength="3" required>
-                    <label>Username/Email</label>
-                    <input type="text" id="username" placeholder="Enter Username" required>
-                    <label>Password</label>
-                    <input type="password" id="password" placeholder="Enter Password" required>
-                        <label>Gender</label>
-                        <input class="radio-input" type="radio" id="male" name="gender" value="Male">
-                        <label class="radio-input" for="male">Male</label class>
-                        <input class="radio-input" type="radio" id="female" name="gender" value="Female">
-                        <label class="radio-input" for="female">Female</label>
+                    <label><span class="error">*</span>First Name</label>
+                    <input type="text" id="fname" minlength="2" maxlength="15" autocomplete="off" oninput="validfName()" required>
+                    <span id="fnameError" class="error"></span>
+
+                    <label><span class="error">*</span>Last Name</label>
+                    <input type="text" id="lname" minlength="2" maxlength="15" autocomplete="off" oninput="validlName()" required>
+                    <span id="lnameError" class="error"></span>
+
+                    <label><span class="error">*</span>Username</label>
+                    <input type="text" id="username" placeholder="Enter Username" autocomplete="off" oninput="validuName()"required>
+                    <span id="usernameError" class="error"></span>
+
+                    <label><span class="error">*</span>Password</label>
+                    <input type="password" id="password" placeholder="Enter Password" oninput="validPassword()" required>
+                    <span id="passwordError" class="error"></span>
+
+                    <label>Gender</label>
+                    <input class="radio-input" type="radio" id="male" name="gender" value="Male">
+                    <label class="radio-input" for="male">Male</label class>
+                    <input class="radio-input" type="radio" id="female" name="gender" value="Female">
+                    <label class="radio-input" for="female">Female</label>
+                    
                     <label>Address</label>
                     <input type="text-field" placeholder="Address" id="address">
                     <div>
                         <label>Profile photo</label>
                         <input type="file" id="profilephoto">
                     </div>
-                    <input class="input-save" type="submit" value="Sign Up" onclick="submitk()">
+                    <input class="com-button input-save" type="submit" value="Sign Up" onclick="submitk()">
                 </form>
             </div>
         </section>
         <script src="../javascript/function-sign-up.js"></script>
-
         <footer class="footer"></footer class="footer">
     </body>
 </html>
