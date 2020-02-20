@@ -19,7 +19,7 @@
         <section class="section-one-wrapper section-signup">
             <div class="signup-page">
                 <h2 class="reg-details">Register your details<h2>
-                <form action="#" method="POST">
+                <!-- <form  onsubmit="return false"> -->
                     <label><span class="error">*</span>First Name</label>
                     <input type="text" id="fname" minlength="2" maxlength="15" autocomplete="off" oninput="validfName()" required>
                     <span id="fnameError" class="error"></span>
@@ -48,8 +48,8 @@
                         <label>Profile photo</label>
                         <input type="file" id="profilephoto">
                     </div>
-                    <input class="com-button input-save" type="submit" value="Sign Up" onclick="submitk()">
-                </form>
+                    <button class="com-button input-save" onclick="submitk()">SignUp</button>
+                <!-- </form> -->
             </div>
         </section>
         <script src="../javascript/function-sign-up-new.js"></script>

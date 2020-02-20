@@ -16,7 +16,7 @@
 
 .profile-page{
     width:70%;
-    background-color:rgba(60,44,100,0.7);
+    background-color:rgba(232, 229, 241, 0.55);
     padding:50px 100px;
     margin:0px auto;
     border-radius: 10px;    
@@ -30,11 +30,7 @@
 
 .input-edit{
 width:20%;
-background-color:#96c93e;
-border:none;
-border-radius: 5px;
-cursor: pointer;
-text-align: center;
+margin-top:15px;
 }
 
 .rem-details{

@@ -46,7 +46,9 @@ function submitk(){
         localStorage.setItem(userName,JSON.stringify(user));
         let data=JSON.parse(localStorage.getItem(userName));
         console.log(data);
-        alert("all sucessfull");
+        alert(`${firstName} you signed in sucessfully`);
+        let a=confirm("Do you want to login ?");
+        if(a==true){window.location.href="../html/login.html";}
     } 
     else{
         alert("*Please fill valid details");

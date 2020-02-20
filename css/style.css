@@ -13,7 +13,7 @@ body{
 }
 
 section{
-    padding:100px 0px;
+    padding:70px 0px;
     margin:0px auto;
     /* background-color:#cccccc; */
 }
@@ -86,6 +86,41 @@ label{
 
 .section-one-wrapper{
     margin-top:90px;
+}
+
+
+/*********************************************/
+.section-footer{
+    height:90px;
+    background-color:black;
+    padding:29px 50px;
+}
+
+.foot-para{
+    font-size: 18px;
+    margin:0px;
+    width:50%;
+    float:left;
+    color:white;
+    font-weight: 300;
+
+}
+.social-image-container{
+    float:right;
+
+}
+.social-image{
+    vertical-align: middle;
+} 
+
+.social-links{
+    line-height:32px;
+    width:32px;
+    background-color:white;
+    border:0px;
+    text-align: center;
+    float:left;
+    margin:0px 5px;
 }
 
 /*

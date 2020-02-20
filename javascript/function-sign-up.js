@@ -42,8 +42,9 @@ function submitk(){
         localStorage.setItem(userName,JSON.stringify(user));
         let data=JSON.parse(localStorage.getItem(userName));
         console.log(data);
-        alert("all sucessfull");
-
+        alert(`${firstName} you signed in sucessfully`);
+        let a=confirm("Do you want to login ?");
+        if(a==true){windows.location.href="../html/login.html";}
     }
 }
 

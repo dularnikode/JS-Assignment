@@ -32,7 +32,8 @@ li:hover{
     width:150px;
     top: 0px;
     padding-top: 70px;
-    right: 25px;
+    padding-bottom: 20px;
+    right:-10px;
 }
 
 
@@ -91,7 +92,12 @@ height:30px;
     float:right;
     margin:0px 5px;
     border:none;
-    
+    color:white;
+    background-color:#48d835;
+    cursor: pointer;
+}
+.delete-button{
+    background-color: red;
 }
 
 tr{
@@ -120,4 +126,5 @@ td,th{
 .checkbox{
     width:20px;
     height:20px;
+    margin:0px auto;
 }
