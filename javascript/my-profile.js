@@ -1,4 +1,3 @@
-
 let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid'))); 
 function profileUpdate(){  
     document.getElementById("fname").value=user.firstNames;
@@ -9,9 +8,7 @@ function profileUpdate(){
     document.getElementById("address").value=user.addresss;
     document.getElementById("profilepic").src=user.profileImages;
 }
-
-document.addEventListener('DOMContentLoded',profileUpdate());
-
+document.addEventListener('DOMContentLoaded',profileUpdate());
 function adding(){
     user.firstNames=document.getElementById("fname").value;
     user.lastNames=document.getElementById("lname").value;

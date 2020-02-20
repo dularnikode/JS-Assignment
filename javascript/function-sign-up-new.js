@@ -141,16 +141,3 @@ function validPassword(){
     }
     errField.innerHTML=errorMessage;
 }
-
-// function validD
-
-// let firstName=document.getElementById("fname").value;
-// let lastName=document.getElementById("lname").value;
-// let userName=document.getElementById("username").value;
-// let password=document.getElementById("password").value;
-// let address=document.getElementById("address").value;
-// let profileImage=document.getElementById("profilephoto").value;
-
-// let gender;
-// let fem=document.getElementById("male").value;
-// let mal=document.getElementById("female").value;

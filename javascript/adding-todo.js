@@ -1,3 +1,4 @@
+
 function addtodo(){
     let title=document.getElementById("title").value;
     let category=document.getElementById("category").value;
@@ -31,7 +32,6 @@ function addtodo(){
     }
 }
 
-
 function validDate(){
     let start=document.getElementById("sdate").value;
     let due=document.getElementById("ddate").value;
@@ -49,6 +49,8 @@ function clearLog(){
 function showtodo(){
     let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
     let arr=user.todotask;
+    let node =document.getElementById("todotable");
+    node.innerHTML="";
     let i;
     for(i=0;i<arr.length;i++){
         appendData(i);
@@ -66,7 +68,6 @@ function showtodo(){
             "<td>"+arr[i].Due+"</td>"+
             "<td><input type='button' class='button-edit' onclick='editToDo("+i+")' value='Edit'></td>";
             //<button id="button-del" class="button-del" onclick="deleteToDo('+i+')">Delete</button></td>';
-        let node =document.getElementById("todotable");
         row.innerHTML=dataitem;
         node.appendChild(row);
     }
@@ -97,12 +98,12 @@ function deleteToDo(){
     arr1 = arr1.filter(function(element){
         return element !== undefined;
      });
-    
     user.todotask=arr1;
     localStorage.setItem(sessionStorage.getItem('userid'),JSON.stringify(user));
+    showtodo();
 }
 
-
+document.addEventListener('DOMContentLoaded',showtodo());
 
 function classFilter(){
     let filterClass=document.getElementById('filter').value;
@@ -138,4 +139,3 @@ function classFilter(){
         showtodo();
     }
 }
-

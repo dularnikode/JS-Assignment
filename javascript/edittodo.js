@@ -1,6 +1,7 @@
 
 
 let i=sessionStorage.getItem('index');
+
 let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
 (function(){
     document.getElementById("title").value=user.todotask[i].Title;
@@ -10,6 +11,7 @@ let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
     document.getElementById("sdate").value=user.todotask[i].Start;
     document.getElementById("ddate").value=user.todotask[i].Due;
 })();
+
 
 function saveEdited(){
     user.todotask[i].Title=document.getElementById("title").value=user.todotask[i].Title;
