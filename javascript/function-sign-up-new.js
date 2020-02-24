@@ -15,30 +15,43 @@ function submitk(){
     let address=document.getElementById("address").value;
     let profileImage=document.getElementById("profilephoto").value;
 
-    let gender;
     let fem=document.getElementById("male").value;
     let mal=document.getElementById("female").value;
-
+    
     let errorMessage;
+    let gender;
+    if(fem=="Female"){
+        gender=fem;
+    }
+    else if (mal=="Male"){
+        gender=mal;
+    }
 
     let exeUser=JSON.parse(localStorage.getItem(userName));
-    if (exeUser.userNames==userName){
-        document.getElementById("exeuserError").innerHTML="*Username should be unique";
+    console.log(exeUser);
+    try{
+        if(exeUser.userNames==userName){
+            document.getElementById("exeuserError").innerHTML="*Username should be unique";
+        }
     }
-    else if(exeUser==null){
+    catch(err)
+    {
+        console.log("new user signup");
+    }
+    
+    validPassword();
+    validfName();
+    validlName();
+    validuName();
+
+    if(exeUser==null){
         document.getElementById("exeuserError").innerHTML="";
-        if(firstName=="" || lastName=="" || userName=="" || password=="")
+        if(firstName=="" || lastName=="" || userName=="" || password=="" || gender=="")
         {
             alert("*Please fill required details.");
         }
         else if(flagFirstname && flagLastname && flagPassword && flagUsername)
         {
-            if(fem=="Female"){
-                gender=fem;
-            }
-            else if (mal="Male"){
-                gender=mal;
-            }
             console.log(firstName,lastName,address,userName,password,profileImage,gender);
             
             let user={
@@ -57,13 +70,16 @@ function submitk(){
             alert(`${firstName} you signed in sucessfully`);
             let a=confirm("Do you want to login ?");
             if(a==true){window.location.href="../html/login.html";}
-        } 
+        }
         else{
             alert("*Please fill valid details");
+            validuName();
+            validPassword();
+            validfName();
+            validlName();
         }
-    }
 
-    
+    }
 }
 
 

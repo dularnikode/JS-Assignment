@@ -25,7 +25,7 @@
         <section class="section-one-wrapper">
             <div class="main-container">
                 <div class="header-list">
-                    <form>
+                    <!-- <form> -->
                         <!-- <label class="input-filter filter-label">from:</label>
                         <input class="input-filter " type="date">
                         <label class="input-filter filter-label">to:</label>
@@ -37,9 +37,9 @@
                             <option value="Office">Office</option>
                         </select>
                         <a href="addtodo.html"><input class="todo-add-button" type="button" value="New todo"></a>
-                        <!-- <button class="todo-add-button" onclick="editToDo()">Edit</button> -->
-                        <input class="todo-add-button delete-button" type="button" onclick="deleteToDo()" value="Delete"></input>               
-                    </form>
+                        <input id="multipleDelButton" class="todo-add-button delete-button display-status" type="button" onclick="deleteToDo()" value="Delete"></input>               
+                        <button id="multipleDoneButton" class="todo-add-button display-status" onclick="markDone()">Done</button>
+                    <!-- </form> -->
                 </div>
                 <div class="card-container"> 
                     <table class="table-container">

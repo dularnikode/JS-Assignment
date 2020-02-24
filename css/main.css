@@ -49,15 +49,13 @@ li:hover{
     font-size: 18px;
 }
 .main-container{
-    width:70%;
-    background-color:rgba(177, 97, 116, 0.7);
+    width:71%;
     margin:0px auto;
     margin-bottom:90px;
     padding-bottom:30px;
 }
 
 .header-list{
-    width:100%;
     height:50px;
     background-color:#2668aa;
     top:0px;
@@ -83,6 +81,7 @@ height:30px;
     padding:30px;
     margin:0px auto;
     border:2px solid black;
+    width:100%;
 
 }
 
@@ -96,6 +95,7 @@ height:30px;
     color:white;
     background-color:#48d835;
     cursor: pointer;
+    font-size: 18px;
 }
 .delete-button{
     background-color: red;
@@ -123,6 +123,13 @@ td,th{
 .button-edit, .button-del{
     padding:5px;
     margin:5px 0px;
+    color:white;
+    cursor: pointer;
+}
+
+
+.button-edit{
+    background-color:#48d835;
 }
 .checkbox{
     width:20px;
@@ -130,3 +137,12 @@ td,th{
     margin:0px auto;
 }
 
+.elip-description{
+    text-overflow:ellipsis;
+}
+
+.display-status{
+    display: none;.display-status{
+        display: none;
+    }
+}

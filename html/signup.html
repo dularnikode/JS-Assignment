@@ -21,22 +21,22 @@
                 <h2 class="reg-details">Register your details<h2>
                 <!-- <form  onsubmit="return false"> -->
                     <label><span class="error">*</span>First Name</label>
-                    <input type="text" id="fname" minlength="2" maxlength="15" autocomplete="off" oninput="validfName()" required>
+                    <input type="text" id="fname" autocomplete="off">
                     <span id="fnameError" class="error"></span>
 
                     <label><span class="error">*</span>Last Name</label>
-                    <input type="text" id="lname" minlength="2" maxlength="15" autocomplete="off" oninput="validlName()" required>
+                    <input type="text" id="lname" minlength="2" >
                     <span id="lnameError" class="error"></span>
 
                     <label><span class="error">*</span>Username</label>
-                    <input type="text" id="username" placeholder="Enter Username" autocomplete="off" oninput="validuName()"required>
+                    <input type="text" id="username" placeholder="Enter Username">
                     <span id="usernameError" class="error"></span>
 
                     <label><span class="error">*</span>Password</label>
-                    <input type="password" id="password" placeholder="Enter Password" oninput="validPassword()" required>
+                    <input type="password" id="password" placeholder="Enter Password">
                     <span id="passwordError" class="error"></span>
 
-                    <label>Gender</label>
+                    <label><span class="error">*</span>Gender</label>
                     <input class="radio-input" type="radio" id="male" name="gender" value="Male">
                     <label class="radio-input" for="male">Male</label class>
                     <input class="radio-input" type="radio" id="female" name="gender" value="Female">
@@ -48,7 +48,6 @@
                         <label>Profile photo</label>
                         <input type="file" id="profilephoto" accept="image/*">
                     </div>
-
                     <span id="exeuserError" class="error"></span>
                     <input type="button" class="com-button input-save" onclick="submitk()" value="SignUp">
                 <!-- </form> -->

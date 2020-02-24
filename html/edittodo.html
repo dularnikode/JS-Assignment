@@ -29,37 +29,28 @@
                     <label><span class="error">*</span>Title</label>
                     <input id="title" type="text">
                     <span id="errtitle" class="error"></span>
-                    
                     <div class="half-container left-half">
-                        <label>Category</label>
-                        <select id ="category" class="category-selection">                            
+                        <label for="category">Category</label>
+                        <select id="category" class="category-selection">                            
                             <option>Office</option>
                             <option>Personal</option>
                             <option>Social</option>
-                        </select>
-                    </div>
-                    <div class="half-container">
-                        <label>Status</label>
-                        <select id="stat" class="category-selection">
-                            <option>Pending</option>
-                            <option>Done</option>
                         </select>
                     </div>
                     <div class="clear"></div>
                     <label>Description</label>
                     <input type="text" id="des">
                     <div class="half-container left-half">
-                        <label>Start Date</label>                        
+                        <label><span class="error">*</span>Start Date</label>                        
                         <input type="date" id="sdate" oninput="validDate()">
                     </div>
                     <div class="half-container">
-                        <label>Due Date</label>
+                        <label><span class="error">*</span>Due Date</label>
                         <input type="date" id="ddate" oninput="validDate()">
                     </div>
                     <div class="clear"></div>
                     <span id="errdue" class="error"></span>
-                    <input type="button" class="com-button save-todo" onclick="saveEdited()" value="save">
-                    
+                    <input type="button" class="com-button save-todo" onclick="saveEdited()" value="save">    
                 </form>
             </div>
         </section>

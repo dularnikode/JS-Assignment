@@ -4,7 +4,6 @@ function profileUpdate(){
     document.getElementById("lname").value=user.lastNames;
     document.getElementById("username").value=user.userNames;
     document.getElementById("password").value=user.passwords;
-    document.getElementById("gender").value=user.genders;
     document.getElementById("address").value=user.addresss;
     document.getElementById("profilepic").src=user.profileImages;
 }
@@ -14,7 +13,6 @@ function adding(){
     user.lastNames=document.getElementById("lname").value;
     user.userNames=document.getElementById("username").value;
     user.passwords=document.getElementById("password").value;
-    user.genders=document.getElementById("gender").value;
     user.addresss=document.getElementById("address").value;
     user.profileImages=document.getElementById("profilepic").src;
     localStorage.setItem(sessionStorage.getItem('userid'),JSON.stringify(user));
