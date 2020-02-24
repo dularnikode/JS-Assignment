@@ -4,6 +4,8 @@ let flagLastname=false;
 let flagUsername=false;
 let flagPassword=false;
 
+
+
 function submitk(){
 
     let firstName=document.getElementById("fname").value;
@@ -19,40 +21,49 @@ function submitk(){
 
     let errorMessage;
 
-    if(firstName=="" || lastName=="" || userName=="" || password=="")
-    {
-        alert("*Please fill required details.");
+    let exeUser=JSON.parse(localStorage.getItem(userName));
+    if (exeUser.userNames==userName){
+        document.getElementById("exeuserError").innerHTML="*Username should be unique";
     }
-    else if(flagFirstname && flagLastname && flagPassword && flagUsername)
-    {
-        if(fem=="Female"){
-            gender=fem;
+    else if(exeUser==null){
+        document.getElementById("exeuserError").innerHTML="";
+        if(firstName=="" || lastName=="" || userName=="" || password=="")
+        {
+            alert("*Please fill required details.");
         }
-        else if (mal="Male"){
-            gender=mal;
+        else if(flagFirstname && flagLastname && flagPassword && flagUsername)
+        {
+            if(fem=="Female"){
+                gender=fem;
+            }
+            else if (mal="Male"){
+                gender=mal;
+            }
+            console.log(firstName,lastName,address,userName,password,profileImage,gender);
+            
+            let user={
+                userNames:userName,
+                passwords:password,
+                firstNames:firstName,
+                lastNames:lastName,
+                genders:gender,
+                addresss:address,
+                profileImages:profileImage,
+                todotask:[],
+            };
+            localStorage.setItem(userName,JSON.stringify(user));
+            let data=JSON.parse(localStorage.getItem(userName));
+            console.log(data);
+            alert(`${firstName} you signed in sucessfully`);
+            let a=confirm("Do you want to login ?");
+            if(a==true){window.location.href="../html/login.html";}
+        } 
+        else{
+            alert("*Please fill valid details");
         }
-        console.log(firstName,lastName,address,userName,password,profileImage,gender);
-        
-        let user={
-            userNames:userName,
-            passwords:password,
-            firstNames:firstName,
-            lastNames:lastName,
-            genders:gender,
-            addresss:address,
-            profileImages:profileImage,
-            todotask:[],
-        };
-        localStorage.setItem(userName,JSON.stringify(user));
-        let data=JSON.parse(localStorage.getItem(userName));
-        console.log(data);
-        alert(`${firstName} you signed in sucessfully`);
-        let a=confirm("Do you want to login ?");
-        if(a==true){window.location.href="../html/login.html";}
-    } 
-    else{
-        alert("*Please fill valid details");
     }
+
+    
 }
 
 

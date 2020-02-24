@@ -46,9 +46,11 @@
                     <input type="text-field" placeholder="Address" id="address">
                     <div>
                         <label>Profile photo</label>
-                        <input type="file" id="profilephoto">
+                        <input type="file" id="profilephoto" accept="image/*">
                     </div>
-                    <button class="com-button input-save" onclick="submitk()">SignUp</button>
+
+                    <span id="exeuserError" class="error"></span>
+                    <input type="button" class="com-button input-save" onclick="submitk()" value="SignUp">
                 <!-- </form> -->
             </div>
         </section>

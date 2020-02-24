@@ -52,6 +52,7 @@ li:hover{
     width:70%;
     background-color:rgba(177, 97, 116, 0.7);
     margin:0px auto;
+    margin-bottom:90px;
     padding-bottom:30px;
 }
 
@@ -128,3 +129,4 @@ td,th{
     height:20px;
     margin:0px auto;
 }
+

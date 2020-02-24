@@ -14,12 +14,12 @@ function login(){
             window.location.href="../html/main.html";
         }
         else{
-            document.getElementById("error").innerHTML="Incorrect Username/Password";
+            errorMessage="Incorrect Username/Password";
         }
     }
     catch(err){
         console.log("unsucessfull");
-        document.getElementById("error").innerHTML="Incorrect Username/Password";    
+        errorMessage="Incorrect Username/Password";    
     } 
     finally{
         function checkup(){
@@ -29,9 +29,6 @@ function login(){
         }
         if(checkup()==false){
             errorMessage="username or password can't be empty";
-        }
-        else{
-            errorMessage="Incorrect Username/Password";
         }
         document.getElementById("error").innerHTML=errorMessage;
     }

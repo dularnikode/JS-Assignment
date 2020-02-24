@@ -28,29 +28,43 @@
                 <form action="#" method="POST">
                     <label><span class="error">*</span>Title</label>
                     <input id="title" type="text" required>
-                    <label for="category">Category</label>
-                    <select id="category" class="category-selection">                            
-                        <option>Office</option>
-                        <option>Personal</option>
-                        <option>Social</option>
-                    </select>
+                    <span id="errtitle" class="error"></span>
+                    <div class="half-container left-half">
+                        <label for="category">Category</label>
+                        <select id="category" class="category-selection">                            
+                            <option>Office</option>
+                            <option>Personal</option>
+                            <option>Social</option>
+                        </select>
+                    </div>
+                    <div class="half-container">
+                        <label>Status</label>
+                        <select id="stat" class="category-selection">
+                            <option>Pending</option>
+                            <option>Done</option>
+                        </select>
+                    </div>
                     <label>Description</label>
                     <input type="text" id="des">
 
-                    <label>Status</label>
-                    <select id="stat" class="category-selection">
-                        <option>Pending</option>
-                        <option>Done</option>
-                    </select>
-                    <label>Start Date</label>                        
-                    <input type="date" id="sdate" oninput="validDate()">
-                    <label>Due Date</label>
-                    <input type="date" id="ddate" oninput="validDate()">
+                    <div class="half-container left-half">
+                        <label>Start Date</label>                        
+                        <input type="date" id="sdate" oninput="validDate()">
+                    </div>
+                    <div class="half-container">
+                        <label>Due Date</label>
+                        <input type="date" id="ddate" oninput="validDate()">
+                    </div>
                     <span id="errdue" class="error"></span>
                     <input type="button" class="com-button save-todo" onclick="addtodo()" value="Save">
                 </form>
             </div>
         </section>
+        <footer class="section-footer">
+            <div>
+                <p class="foot-para">&copy2020 TODO. All Rights Reserved</p>
+            <div>
+        </footer>
         <script src="../javascript/validation.js"></script>
         <script src="../javascript/adding-todo.js"></script>
         <footer class="footer"></footer class="footer">
