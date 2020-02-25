@@ -14,6 +14,7 @@
             <div class="head-button-container profile-wrapper">
                 
                 <img id="profile" class="profile" src="../images/default_user.jpg">
+                <span id="showuserName" style="display:block;"></span>
                 <ul class="profile-list">
                     <a class="anchor" href="myprofile.html"><li>My Profile</li></a>
                     <a class="anchor" href="main.html"><li>My Todo</li></a>
@@ -44,7 +45,7 @@
                 <div class="card-container"> 
                     <table class="table-container">
                             <tr>
-                                <th>Checkbox</th>
+                                <th><input type="checkbox" class="common-checkbox display-checkbox" id="commonCheckbox"><span class="display-checkbox">Checkbox</span></th>
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Description</th>
@@ -57,7 +58,7 @@
                             
                     </table>
                 </div>
-                <div id="showInfoMessage"></div>
+                <div id="showInfoMessage" class="infomessage"></div>
             </div>
         </section>
         <footer class="section-footer">
@@ -65,7 +66,7 @@
                 <p class="foot-para">&copy2020 TODO. All Rights Reserved</p>
             <div>
         </footer>
-        <script src="../javascript/adding-todo.js"></script>
         <script src="../javascript/validation.js"></script>
+        <script src="../javascript/adding-todo.js"></script>
     </body>
 </html>

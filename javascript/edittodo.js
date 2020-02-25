@@ -27,7 +27,7 @@ function saveEdited(){
         localStorage.setItem(sessionStorage.getItem('userid'),JSON.stringify(user));
         alert("Edited Sucessfully");
         let a=confirm("Go to MY TODO");
-        if(a==true){
+        if(a==false){
             window.location.href="../html/main.html";
         }
     }

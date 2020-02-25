@@ -119,7 +119,6 @@ td,th{
     padding:15px;
     text-align: center;
 }
-
 .button-edit, .button-del{
     padding:5px;
     margin:5px 0px;
@@ -138,11 +137,26 @@ td,th{
 }
 
 .elip-description{
+    overflow: hidden;
     text-overflow:ellipsis;
+    width:100px;
 }
 
 .display-status{
-    display: none;.display-status{
-        display: none;
-    }
+    display: none;
+}
+
+.infomessage{
+    text-align: center;
+    padding:20px 0px;
+}
+
+
+.common-checkbox{
+   width:15px;
+   height:15px;
+}
+
+.display-checkbox{
+    display: inline-block;
 }

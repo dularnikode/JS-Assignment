@@ -78,7 +78,6 @@ function submitk(){
 
 
 function changeProfilePic(){
-
     let Image = document.getElementById("profilephoto").files[0];
     let imagereader = new FileReader();
     imagereader.readAsDataURL(Image);

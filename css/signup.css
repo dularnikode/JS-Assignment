@@ -26,9 +26,9 @@ margin-top: 10px;
 }
 
 .gender{
-    text-align: left;
-    
+    text-align: left; 
 }
+
 .radio-input{
     display: inline-block;
     width:auto;

@@ -17,7 +17,6 @@ function profileUpdate(){
 document.addEventListener('DOMContentLoaded',profileUpdate());
 
 function adding(){
-/************************* */
     validPassword();
     validfName();
     validlName();
@@ -55,7 +54,6 @@ function adding(){
         validfName();
         validlName();
     }
-/***************************/
 }
 
 function changeProfilePic(){

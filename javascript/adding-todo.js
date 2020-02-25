@@ -1,5 +1,14 @@
-"use strict";
 checklogin();
+(function(){
+    try{
+        let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
+        document.getElementById("showuserName").innerHTML=user.userNames;
+        document.getElementById("profile").src=user.profileImages;
+    }
+    catch(err){
+        console.log("source not found ! Error occued "+err);
+    }
+})();
 function addtodo(){
     let title=document.getElementById("title").value;
     let category=document.getElementById("category").value;
