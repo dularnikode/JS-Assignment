@@ -64,6 +64,7 @@ label{
     top:0px;
     background-color: aqua;
     width: 100%;
+    z-index: 5;
 }
 .com-button{
     font-size: 25px;

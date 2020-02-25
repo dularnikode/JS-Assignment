@@ -1,5 +1,4 @@
-
-
+checklogin();
 let i=sessionStorage.getItem('index');
 
 let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));

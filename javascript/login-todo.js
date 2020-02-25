@@ -1,4 +1,3 @@
-
 function login(){ 
     let uid=document.getElementById("username").value;
     let pass=document.getElementById("password").value;   

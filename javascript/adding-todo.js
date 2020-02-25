@@ -1,4 +1,5 @@
-
+"use strict";
+checklogin();
 function addtodo(){
     let title=document.getElementById("title").value;
     let category=document.getElementById("category").value;
@@ -88,6 +89,10 @@ function showtodo(){
     }
     if(DonePending[1]>0){
         document.getElementById("multipleDoneButton").style.display="block";
+    }
+    if(DonePending[1]==0 && DonePending[0]==0)
+    {
+        document.getElementById("showInfoMessage").innerHTML="NO TODO SEEN ! Please Add TODO";
     }
 }
 

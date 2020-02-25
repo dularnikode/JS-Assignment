@@ -44,20 +44,21 @@
 
                     <label>Address</label>
                     <input type="text-field" placeholder="Address" id="address">
-                    <div>
-                        <label>Profile photo</label>
-                        <input type="file" id="profilephoto" accept="image/*">
-                    </div>
+                    <label>Profile photo</label>
+                    <img id="profileImage"  class="profileImage" src="../images/default_user.jpg">
+                    <input type="file" id="profilephoto" accept="image/*" onchange="changeProfilePic(event)">
                     <span id="exeuserError" class="error"></span>
                     <input type="button" class="com-button input-save" onclick="submitk()" value="SignUp">
                 <!-- </form> -->
             </div>
         </section>
-        <script src="../javascript/function-sign-up-new.js"></script>
+       
         <footer class="section-footer footer-signup">
             <div>
                 <p class="foot-para">&copy2020 TODO. All Rights Reserved</p>
             <div>
         </footer>
+        <script src="../javascript/validation.js"></script>
+        <script src="../javascript/function-sign-up-new.js"></script>
     </body>
 </html>

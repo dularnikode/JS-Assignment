@@ -24,22 +24,35 @@
         </header>
         <section class="section-one-wrapper section-myprofile">
             <div class="profile-page">
-                <form action="#" method="POST">
+                <form action="#" method="POST" class="myprofile-form">
                 
                     <img  id="profilepic"class="profile-photo" src="../images/default_user.jpg" alt="default_user">
+                    <div class="input-profileimage">
+                        <input type="file"  id="profilephoto" accept="image/*" onchange="changeProfilePic(event)">
+                    </div>
                     <div class="name-container">
-                        <label >First Name</label>
+                        <label><span class="error">*</span>First Name</label>
                         <input id="fname" type="text">
-                        <label>Last Name</label>
+                        <span id="fnameError" class="error"></span>
+                        <label><span class="error">*</span>Last Name</label>
                         <input id="lname" type="text">
+                        <span id="lnameError" class="error"></span>
                     </div>
                     <div class="rem-details">
-                        <label >Username</label>
+                        <label><span class="error">*</span>Username</label>
                         <input id="username" class="input-username" type="text" disabled>
-                        <label>Password</label>
+                        <span id="usernameError" class="error"></span>
+                        
+                        <label><span class="error">*</span>Password</label>
                         <input id="password" class="input-password" type="text">
-                        <label>Gender</label>
-                        <input id="gender" type="text" disabled>
+                        <span id="passwordError" class="error"></span>
+                        
+
+                        <label><span class="error">*</span>Gender</label>
+                        <input class="radio-input" type="radio" id="male" name="gender" value="Male">
+                        <label class="radio-input" for="male">Male</label class>
+                        <input class="radio-input" type="radio" id="female" name="gender" value="Female">
+                        <label class="radio-input" for="female">Female</label>
                         <label >Address</label>
                         <input id="address" type="text">
                     </div>
