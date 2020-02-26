@@ -12,7 +12,7 @@ function submitk(){
     let fem=document.getElementById("female").checked;
     
     let errorMessage;
-    let gender;
+    let gender="";
     if(fem){
         gender="Female";
     }

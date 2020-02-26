@@ -12,10 +12,30 @@
 // let incorrectUser="Username can't be empty";
 // let incorrectPass="Password can't be empty";
 
+(function(){
+    try{
+        let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
+        document.getElementById("showuserName").innerHTML=user.userNames;
+        if(user.profileImages!=null){
+            document.getElementById("profile").src=user.profileImages;
+        }
+        else
+        {
+            document.getElementById("profile").src="../images/default_user.jpg";
+        }
+    }
+    catch(err){
+        console.log("source not found ! Error occued "+err);
+    }
+})();
+
+
+
 let flagFirstname=false;
 let flagLastname=false;
 let flagUsername=false;
 let flagPassword=false;
+let flagValidDate=false;
 
 function checklogin(){
     let a=sessionStorage.getItem("userid");
@@ -125,6 +145,21 @@ function validPassword(){
     }
     errField.innerHTML=errorMessage;
 }
+
+function validDate(){
+    let start=document.getElementById("sdate").value;
+    let due=document.getElementById("ddate").value;
+    let message=document.getElementById("errdue");
+    message.innerHTML="";
+    if(start>due && start!="" && due!=""){
+        flagValidDate=true;
+        message.innerHTML=`Due date should be greather than start date : ${start}`;
+    }
+    else{
+        flagValidDate=false;
+    }
+}
+
 
 
 function checkForSpaces(text){

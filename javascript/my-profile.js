@@ -6,7 +6,12 @@ function profileUpdate(){
     document.getElementById("username").value=user.userNames;
     document.getElementById("password").value=user.passwords;
     document.getElementById("address").value=user.addresss;
-    document.getElementById("profilepic").src=user.profileImages;
+    if(user.profileImages!=null){
+        document.getElementById("profilepic").src=user.profileImages;
+    }
+    else{
+        document.getElementById("profilepic").src="../images/default_user.jpg";
+    }
     if(user.genders=="Male"){
         document.getElementById("male").checked=true;
     }
@@ -28,9 +33,16 @@ function adding(){
         user.addresss=document.getElementById("address").value;
         let mal=document.getElementById("male").checked;
         let fem=document.getElementById("female").checked;
+        let mypic;
         try{
-        user.profile=sessionStorage.getItem("displayImage");
+        mypic=sessionStorage.getItem("displayImage");
         sessionStorage.removeItem("displayImage");
+        if(mypic!=null){
+            document.getElementById("profilepic").src=mypic;
+        }
+        else{
+            document.getElementById("profilepic").src="../images/default_user.jpg";
+        }
         }
         catch(err){
             console.log("image not found");
@@ -44,6 +56,7 @@ function adding(){
         }
         user.genders=gender;
         user.profileImages=document.getElementById("profilepic").src;
+        document.getElementById('profile').src=user.profileImages;
         localStorage.setItem(sessionStorage.getItem('userid'),JSON.stringify(user));
         console.log("Profile edited sucesslully");
         alert("Edited Sucessfully");

@@ -1,14 +1,4 @@
 checklogin();
-(function(){
-    try{
-        let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
-        document.getElementById("showuserName").innerHTML=user.userNames;
-        document.getElementById("profile").src=user.profileImages;
-    }
-    catch(err){
-        console.log("source not found ! Error occued "+err);
-    }
-})();
 function addtodo(){
     let title=document.getElementById("title").value;
     let category=document.getElementById("category").value;
@@ -26,6 +16,9 @@ function addtodo(){
     if(title=="" || start=="" || due==""){
       alert("*Please fill required details");  
     }
+    else if(flagValidDate==true){
+        alert("Please fill valid details");
+    }
     else{
         let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
         user.todotask.push(todoObj);
@@ -41,17 +34,6 @@ function addtodo(){
     }
 }
 
-function validDate(){
-    let start=document.getElementById("sdate").value;
-    let due=document.getElementById("ddate").value;
-    let message=document.getElementById("errdue");
-    message.innerHTML="";
-    if(start>due && start!="" && due!=""){
-        message.innerHTML=`Due date should be greather than start date : ${start}`;
-    }
-}
-
-
 function clearLog(){
     sessionStorage.clear();
 }
@@ -61,6 +43,12 @@ function showtodo(){
     let node =document.getElementById("todotable");
     document.getElementById("multipleDelButton").style.display="none";
     document.getElementById("multipleDoneButton").style.display="none";
+    if(arr.length<=1){
+        document.getElementById("commonCheckbox").style.display="none";
+    }
+    else{
+        document.getElementById("commonCheckbox").style.display="inline-block";
+    }
     node.innerHTML="";
     let i;
     let scriptButton="";
@@ -149,14 +137,19 @@ function classFilter(){
     let i;
     let todoTable=document.getElementById('todotable');
     todoTable.innerHTML="";
-
+    document.getElementById("showInfoMessage").innerHTML="";
     let scriptButton="";
+    let flagCategoryfound=false;
+    let count=0;
     if(filterClass=='Personal'  || filterClass=='Social' ||filterClass=='Office')
     {
         for(i=0;i<arr.length;i++)
         {
             if(arr[i].Category==filterClass)
-           {    if(arr[i].Status=="Done"){
+           {   
+               count+=1;  
+               flagCategoryfound="true";
+               if(arr[i].Status=="Done"){
                     scriptButton="<td><input type='button' id='button-del' class='button-del delete-button' onclick='deleteSingleToDo("+i+")' value='Delete'></td>";              
                 }
                 else if(arr[i].Status=="Pending")
@@ -179,6 +172,16 @@ function classFilter(){
                 row.innerHTML=dataitem;
                 todoTable.appendChild(row);
             }       
+        }
+        if(count<=1){
+            document.getElementById("commonCheckbox").style.display="none";
+        }
+        else{
+            document.getElementById("commonCheckbox").style.display="inline-block";
+        }
+    
+        if(flagCategoryfound==false){
+            document.getElementById("showInfoMessage").innerHTML=`NO TODO SEEN of category ${filterClass}! Please Add TODO`;
         }
     }
     else{
@@ -222,4 +225,21 @@ function CheckAllDone(){
         }
     }
     return countDonePending;
+}
+
+
+function selectAllCheckbox(){
+    let comCheckbox=document.getElementById("commonCheckbox");
+    let x=document.getElementsByClassName("checkbox");
+    let i;
+    if(comCheckbox.checked==true){
+        for(i=0;i<x.length;i++){
+            x[i].checked=true;
+        }
+    }
+    else{
+        for(i=0;i<x.length;i++){
+            x[i].checked=false;
+        }
+    }
 }
