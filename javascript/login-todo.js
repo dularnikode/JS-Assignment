@@ -1,26 +1,23 @@
 
-/*Check for fallback screnario*/
-function lsTest(){
-    var test = 'test';
-    try {
-        localStorage.setItem(test, test);
-        localStorage.removeItem(test);
-        return true;
-    } catch(e) {
-        return false;
-    }
-}
-(function(){
-if(lsTest() === false){
-    alert="Local Storage is not availabel";
-}
 
-})();
 
 /*Login Module*/
 var login =(function(){
     let uid;
     let pass;
+
+/*Fallback scenario*/
+    (function(){
+        var test = 'test';
+        try {
+            localStorage.setItem(test, test);
+            localStorage.removeItem(test);
+        } catch(e) {
+            alert("Local Storage is not availabel")
+        }
+
+    })();
+
     /*check username and password field are empty or not */
     var _checkUserPassword=function (){
             if(_checknull(uid)==true && _checknull(pass)==true){

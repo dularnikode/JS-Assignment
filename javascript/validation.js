@@ -1,3 +1,4 @@
+/*Module Validation */
 var Validation=(function(){
     
     let firstName,lastName,userName,password,start,due;
@@ -7,6 +8,8 @@ var Validation=(function(){
         let pattern=/\s/;
         return pattern.test(text);
     };
+
+    /*Update Profile on display*/
     var changeProfilePic= function(){
 
         let Image = document.getElementById("profilephoto").files[0];
@@ -21,6 +24,8 @@ var Validation=(function(){
         };
         
     };
+
+    /*validation for first Name*/
     var validfName = function(){
         firstName=document.getElementById("fname").value;
         errField=document.getElementById("fnameError");    
@@ -46,6 +51,8 @@ var Validation=(function(){
         }
         errField.innerHTML=errorMessage;
     };
+
+    /*Validation for lastName*/
     var validlName=function(){
         lastName=document.getElementById("lname").value;
         errField=document.getElementById("lnameError");
@@ -68,6 +75,8 @@ var Validation=(function(){
         }
         errField.innerHTML=errorMessage;
     };
+
+    /*validation for userName*/
     var _validuName =function(){
         userName=document.getElementById("username").value;
         errField=document.getElementById("usernameError");
@@ -93,6 +102,8 @@ var Validation=(function(){
         }
         errField.innerHTML=errorMessage;
     };
+
+    /*validation for Password */
     var validPassword = function(){
         password=document.getElementById("password").value;
         errField=document.getElementById("passwordError");
@@ -115,6 +126,7 @@ var Validation=(function(){
         errField.innerHTML=errorMessage;
     };
 
+    /*validation for start and end date of task*/
     var validDate= function(){
         start=document.getElementById("sdate").value;
         due=document.getElementById("ddate").value;
@@ -129,6 +141,7 @@ var Validation=(function(){
         }
     };
 
+    /*On clik function for sign up*/
     var submitSignUp=function(){
 
 
@@ -207,6 +220,7 @@ var Validation=(function(){
         }
     };
 
+    /*Pubic Methods */
     return{
         submitSignUp:submitSignUp,
         validDate:validDate,

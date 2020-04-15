@@ -1,18 +1,25 @@
+/*Module Local storage*/
 var LocalStorage=(function(){
-    
+    /*Getting user object*/
     var getUser =function(){
         let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')))
         return user;
     }
+
+    /*Setting Userr Object*/
     var setUser=function(user){
         localStorage.setItem(sessionStorage.getItem('userid'),JSON.stringify(user));
     }
+
+    /*Public Method*/
     return {
         getUser:getUser,
         setUser:setUser,
     }
 })();
 
+
+/*function to load Profile on page load*/
 (function(){
     try{
         let user=LocalStorage.getUser();
@@ -30,6 +37,8 @@ var LocalStorage=(function(){
     }
 })();
 
+
+/*To check user login or not */
 function checklogin(){
     let a=sessionStorage.getItem("userid");
     if(a==null){
@@ -38,12 +47,14 @@ function checklogin(){
     }
 }
 
+/**Validation Global flags*/
 let flagFirstname=false;
 let flagLastname=false;
 let flagUsername=false;
 let flagPassword=false;
 let flagValidDate=false;
 
+/*clear session storage when logout*/
 function clearLog(){
     sessionStorage.clear();
 }

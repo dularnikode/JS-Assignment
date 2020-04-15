@@ -1,6 +1,9 @@
 checklogin();
+/*Profie Module */
 var profile=(function(){
     let user=LocalStorage.getUser();
+
+    /**Update Profile*/
     var profileUpdate=function(){  
         document.getElementById("fname").value=user.firstNames;
         document.getElementById("lname").value=user.lastNames;
@@ -20,6 +23,8 @@ var profile=(function(){
             document.getElementById("female").checked=true;
         }
     };
+
+    /** change Pofile Pic*/
     var changeProfilePic= function(){
 
         let Image = document.getElementById("profilephoto").files[0];
@@ -34,6 +39,8 @@ var profile=(function(){
         };
         
     };
+
+    /**Save changed data*/
     var adding=function(){
         Validation.validPassword();
         Validation.validfName();
@@ -82,6 +89,7 @@ var profile=(function(){
         }
     };
 
+    /**Public Method*/
     return {
         adding:adding,
         changeProfilePic:changeProfilePic,
