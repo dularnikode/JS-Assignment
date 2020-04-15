@@ -1,47 +1,107 @@
-function login(){ 
-    let uid=document.getElementById("username").value;
-    let pass=document.getElementById("password").value;   
-    let errorMessage="";
-    try{
-        let user=JSON.parse(localStorage.getItem(uid));
-        if(user.userNames==uid && user.passwords==pass)
-        {
-            //alert("sucessfully loged in");
-            document.getElementById('error').innerHTML=errorMessage;
-            alert(`${uid} you logged in sucessfully`);
-            sessionStorage.setItem('userid',uid);
-            window.location.href="../html/main.html";
-        }
-        else{
-            errorMessage="Incorrect Username/Password";
-        }
-    }
-    catch(err){
-        console.log("unsucessfull");
-        errorMessage="Incorrect Username/Password";    
-    } 
-    finally{
-        function checkup(){
-            if(checknull(uid)==true || checknull(pass)==true){
-                return false;
-            }
-        }
-        if(checkup()==false){
-            errorMessage="username or password can't be empty";
-        }
-        document.getElementById("error").innerHTML=errorMessage;
-    }
-}
-// function checkup(){
-//     if(checknull(uid)==true || checknull(pass)==true){
-//         return false;
-//     }
-// }
-function checknull(entry){
-    if(entry==''){
+
+/*Check for fallback screnario*/
+function lsTest(){
+    var test = 'test';
+    try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
         return true;
-    }
-    else{
+    } catch(e) {
         return false;
     }
 }
+(function(){
+if(lsTest() === false){
+    alert="Local Storage is not availabel";
+}
+
+})();
+
+/*Login Module*/
+var login =(function(){
+    let uid;
+    let pass;
+    /*check username and password field are empty or not */
+    var _checkUserPassword=function (){
+            if(_checknull(uid)==true && _checknull(pass)==true){
+                return false;
+            }
+        };
+    
+    /*Check If username field id empty */
+    var _checkUser=function(){
+        if(_checknull(uid)==true){
+            return false;
+        }
+    };
+
+    /*check if Password field is empty */
+    var _checkPassword=function(){
+        if(_checknull(pass)==true){
+            return false;
+        }
+    };
+    /*Check for Null value*/
+    var _checknull=function(entry){
+        if(entry==''){
+            return true;
+        }
+        else{
+            return false;
+        }
+    };
+
+    /*For Login Validation*/
+    var userLogin=function(){  
+        uid=document.getElementById("username").value;
+        pass=document.getElementById("password").value; 
+        let errorMessage="";
+        document.getElementById("error").innerHTML="";
+        document.getElementById("logUserError").innerHTML="";
+        document.getElementById("logPassError").innerHTML="";
+        try{
+            let user=JSON.parse(localStorage.getItem(uid));
+            if(user.userNames==uid)
+            {
+                if(user.passwords==pass)
+                {
+                    document.getElementById('error').innerHTML=errorMessage; 
+                    sessionStorage.setItem('userid',uid);
+                    window.location.href="../html/main.html";
+                    alert(`${uid} you logged in sucessfully`);
+                }
+                else{
+                    errorMessage="Incorrect Password";
+                }
+            }
+            else{
+                errorMessage="User dosen't exist ! Please signup";
+            }
+        }
+        catch(err){
+            console.log("unsucessfull");
+            errorMessage="User dosen't exist ! Please signup";
+        } 
+        finally{
+            if(_checkUserPassword()==false){
+                errorMessage="username and password can't be empty";
+            }
+            else if(_checkUser()==false || _checkPassword()==false){
+                errorMessage="";
+                if(_checkUser()==false){
+                document.getElementById("logUserError").innerHTML="username can't be empty";
+                }
+                if(_checkPassword()==false){
+                    document.getElementById("logPassError").innerHTML="Password can't be empty";
+                }
+            }
+            document.getElementById("error").innerHTML=errorMessage;
+        }
+    };
+
+    /*Public Method*/
+    return {
+        userLogin:userLogin
+        };
+})();
+

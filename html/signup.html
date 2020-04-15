@@ -1,18 +1,16 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>TODO | Do not forget</title>
         <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/style.css"> 
         <link rel="stylesheet" href="../css/signup.css">
-        <style>
-            @import url('https://fonts.googleapis.com/css?family=Pacifico|Poppins:300,400,500,700&display=swap');
-        </style>
     </head>
     <body>
         <header class="header-wrapper">
             <h2 class="heading-logo">TODO </h2>
             <div class="head-button-container">
-                <a href="login.html"><button class="com-button button-login-signup">Login</button></a>
+                <a href="index.html"><button class="com-button button-login-signup">Login</button></a>
             </div>
             <div class="clear"></div>
         </header>
@@ -46,9 +44,9 @@
                     <input type="text-field" placeholder="Address" id="address">
                     <label>Profile photo</label>
                     <img id="profileImage"  class="profileImage" src="../images/default_user.jpg">
-                    <input type="file" id="profilephoto" accept="image/*" onchange="changeProfilePic(event)">
+                    <input type="file" id="profilephoto" accept="image/*" onchange="Validation.changeProfilePic(event)">
                     <span id="exeuserError" class="error"></span>
-                    <input type="button" class="com-button input-save" onclick="submitk()" value="SignUp">
+                    <input type="button" class="com-button input-save" onclick="Validation.submitSignUp()" value="SignUp">
                 <!-- </form> -->
             </div>
         </section>
@@ -58,7 +56,7 @@
                 <p class="foot-para">&copy2020 TODO. All Rights Reserved</p>
             <div>
         </footer>
+        <script src="../javascript/controller.js"></script>
         <script src="../javascript/validation.js"></script>
-        <script src="../javascript/function-sign-up-new.js"></script>
     </body>
 </html>

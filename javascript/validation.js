@@ -1,168 +1,220 @@
-// function checknull(entry){
-//     if(entry==null){
-//         return true;
-//     }
-//     else{
-//         return false;
-//     }
-// }
+var Validation=(function(){
+    
+    let firstName,lastName,userName,password,start,due;
+    let errField;
+    let errorMessage="";
+    var _checkForSpaces=function(text){
+        let pattern=/\s/;
+        return pattern.test(text);
+    };
+    var changeProfilePic= function(){
 
+        let Image = document.getElementById("profilephoto").files[0];
+        let imagereader = new FileReader();
+        imagereader.readAsDataURL(Image);
 
-// let commError="Incorrect username/password";
-// let incorrectUser="Username can't be empty";
-// let incorrectPass="Password can't be empty";
-
-(function(){
-    try{
-        let user=JSON.parse(localStorage.getItem(sessionStorage.getItem('userid')));
-        document.getElementById("showuserName").innerHTML=user.userNames;
-        if(user.profileImages!=null){
-            document.getElementById("profile").src=user.profileImages;
-        }
-        else
+        imagereader.onload = function ()
         {
-            document.getElementById("profile").src="../images/default_user.jpg";
+            let imgdata = imagereader.result;
+            sessionStorage.setItem("displayImage", imgdata);
+            document.getElementById("profileImage").src = imgdata;
+        };
+        
+    };
+    var validfName = function(){
+        firstName=document.getElementById("fname").value;
+        errField=document.getElementById("fnameError");    
+        if(firstName==""){
+            errorMessage="*Field can't be empty";
+            flagFirstname=false;
         }
-    }
-    catch(err){
-        console.log("source not found ! Error occued "+err);
-    }
+        else if(_checkForSpaces(firstName)==true){
+            errorMessage="*Space is not allowed";
+            flagFirstname=false;
+        }
+        else if(isNaN(firstName)!=true){
+            errorMessage="*First Name can't be number";
+            flagFirstname=false;
+        }
+        else if((firstName.length)<2 || (firstName.length)>15){
+            errorMessage="*Name can't be less than 2 and greather than 15 character";
+            flagFirstname=false;
+        }
+        else {
+            errField.innerHTML="";
+            flagFirstname=true;
+        }
+        errField.innerHTML=errorMessage;
+    };
+    var validlName=function(){
+        lastName=document.getElementById("lname").value;
+        errField=document.getElementById("lnameError");
+        if(lastName==""){errorMessage="*Field can't be empty";flagLastname=false;}
+        else if(_checkForSpaces(lastName)==true){
+            errorMessage="*Space is not allowed";
+            flagLastname=false;
+        }
+        else if(isNaN(lastName)!=true){
+            errorMessage="*Last Name can't be number";
+            flagLastname=false;
+        }
+        else if((lastName.length)<2 || (lastName.length)>15){
+            errorMessage="*Last Name can't be less than 2 and greather than 15 character";
+            flagLastname=false;
+        }
+        else {
+            errField.innerHTML=errorMessage;
+            flagLastname=true;
+        }
+        errField.innerHTML=errorMessage;
+    };
+    var _validuName =function(){
+        userName=document.getElementById("username").value;
+        errField=document.getElementById("usernameError");
+        if(userName==""){
+            errorMessage="*Field can't be empty";
+            flagUsername=false;
+        }
+        else if(_checkForSpaces(userName)==true){
+            errorMessage="*Space is not allowed";
+            flagUsername=false;
+        }
+        else if(isNaN(userName)!=true){
+            errorMessage="*Username can't be number";
+            flagUsername=false;
+        }
+        else if((userName.length)<8 || (userName.length)>20){
+            errorMessage="*Username can't be less than 8 and greather than 20 character";
+            flagUsername=false;
+        }
+        else {
+            errField.innerHTML=errorMessage;
+            flagUsername=true;
+        }
+        errField.innerHTML=errorMessage;
+    };
+    var validPassword = function(){
+        password=document.getElementById("password").value;
+        errField=document.getElementById("passwordError");
+        if(password==""){
+            errorMessage="*Field can't be empty";
+            flagPassword=false;
+        }
+        else if(_checkForSpaces(password)==true){
+            errorMessage="*Space is not allowed";
+            flagPassword=false;
+        }
+        else if((password.length)<8 || (password.length)>15){
+            errorMessage="*Password can't be less than 8 and greather than 15 character";
+            flagPassword=false;
+        }
+        else {
+            errField.innerHTML=errorMessage;
+            flagPassword=true;
+        }
+        errField.innerHTML=errorMessage;
+    };
+
+    var validDate= function(){
+        start=document.getElementById("sdate").value;
+        due=document.getElementById("ddate").value;
+        let message=document.getElementById("errdue");
+        message.innerHTML="";
+        if(start>due && start!="" && due!=""){
+            flagValidDate=true;
+            message.innerHTML=`Due date should be greather than start date : ${start}`;
+        }
+        else{
+            flagValidDate=false;
+        }
+    };
+
+    var submitSignUp=function(){
+
+
+        let firstName=document.getElementById("fname").value;
+        let lastName=document.getElementById("lname").value;
+        let userName=document.getElementById("username").value;
+        let password=document.getElementById("password").value;
+        let address=document.getElementById("address").value;
+        let profileImage=document.getElementById("profilephoto").value;
+
+        let mal=document.getElementById("male").checked;
+        let fem=document.getElementById("female").checked;
+        
+        let errorMessage;
+        let gender="";
+        if(fem){
+            gender="Female";
+        }
+        else if (mal){
+            gender="Male";
+        }
+
+        let exeUser=JSON.parse(localStorage.getItem(userName));
+        console.log(exeUser);
+        try{
+            if(exeUser.userNames==userName){
+                document.getElementById("exeuserError").innerHTML="*Username should be unique";
+            }
+        }
+        catch(err)
+        {
+            console.log("new user signup");
+        }
+        
+        validPassword();
+        validfName();
+        validlName();
+        _validuName();
+
+        if(exeUser==null){
+            document.getElementById("exeuserError").innerHTML="";
+            if(firstName=="" || lastName=="" || userName=="" || password=="" || gender=="")
+            {
+                alert("*Please fill required details.");
+            }
+            else if(flagFirstname && flagLastname && flagPassword && flagUsername)
+            {
+                console.log(firstName,lastName,address,userName,password,profileImage,gender);
+                let profilesrc=sessionStorage.getItem("displayImage");
+                sessionStorage.removeItem("displayImage");
+                let user={
+                    userNames:userName,
+                    passwords:password,
+                    firstNames:firstName,
+                    lastNames:lastName,
+                    genders:gender,
+                    addresss:address,
+                    profileImages:profilesrc,
+                    todotask:[],
+                };
+                localStorage.setItem(userName,JSON.stringify(user));
+                let data=JSON.parse(localStorage.getItem(userName));
+                console.log(data);
+                alert(`${firstName} you signed in sucessfully`);
+                let a=confirm("Do you want to login ?");
+                if(a==true){window.location.href="../html/index.html";}
+            }
+            else{
+                alert("*Please fill valid details");
+                validuName();
+                validPassword();
+                validfName();
+                _validlName();
+            }
+
+        }
+    };
+
+    return{
+        submitSignUp:submitSignUp,
+        validDate:validDate,
+        validfName:validfName,
+        validlName:validlName,
+        validPassword:validPassword,
+        changeProfilePic:changeProfilePic
+    };
+
 })();
 
-
-
-let flagFirstname=false;
-let flagLastname=false;
-let flagUsername=false;
-let flagPassword=false;
-let flagValidDate=false;
-
-function checklogin(){
-    let a=sessionStorage.getItem("userid");
-    if(a==null){
-        alert("*Please login first");
-        window.location.href="../html/login.html";
-    }
-}
-
-function validfName(){
-    let firstName=document.getElementById("fname").value;
-    let errField=document.getElementById("fnameError");
-    let errorMessage="";
-    if(firstName==""){
-        errorMessage="*Field can't be empty";
-        flagFirstname=false;
-    }
-    else if(checkForSpaces(firstName)==true){
-        errorMessage="*Space is not allowed";
-        flagFirstname=false;
-    }
-    else if(isNaN(firstName)!=true){
-        errorMessage="*First Name can't be number";
-        flagFirstname=false;
-    }
-    else if((firstName.length)<2 || (firstName.length)>15){
-        errorMessage="*Name can't be less than 2 and greather than 15 character";
-        flagFirstname=false;
-    }
-    else {
-        errField.innerHTML="";
-        flagFirstname=true;
-    }
-    errField.innerHTML=errorMessage;
-}
-
-function validlName(){
-    let lastName=document.getElementById("lname").value;
-    let errField=document.getElementById("lnameError");
-    let errorMessage="";
-    if(lastName==""){errorMessage="*Field can't be empty";flagLastname=false;}
-    else if(checkForSpaces(lastName)==true){
-        errorMessage="*Space is not allowed";
-        flagLastname=false;
-    }
-    else if(isNaN(lastName)!=true){
-        errorMessage="*Last Name can't be number";
-        flagLastname=false;
-    }
-    else if((lastName.length)<2 || (lastName.length)>15){
-        errorMessage="*Last Name can't be less than 2 and greather than 15 character";
-        flagLastname=false;
-    }
-    else {
-        errField.innerHTML=errorMessage;
-        flagLastname=true;
-    }
-    errField.innerHTML=errorMessage;
-}
-
-function validuName(){
-    let userName=document.getElementById("username").value;
-    let errField=document.getElementById("usernameError");
-    let errorMessage="";
-    if(userName==""){
-        errorMessage="*Field can't be empty";
-        flagUsername=false;
-    }
-    else if(checkForSpaces(userName)==true){
-        errorMessage="*Space is not allowed";
-        flagUsername=false;
-    }
-    else if(isNaN(userName)!=true){
-        errorMessage="*Username can't be number";
-        flagUsername=false;
-    }
-    else if((userName.length)<8 || (userName.length)>20){
-        errorMessage="*Username can't be less than 8 and greather than 20 character";
-        flagUsername=false;
-    }
-    else {
-        errField.innerHTML=errorMessage;
-        flagUsername=true;
-    }
-    errField.innerHTML=errorMessage;
-}
-
-function validPassword(){
-    let password=document.getElementById("password").value;
-    let errField=document.getElementById("passwordError");
-    let errorMessage="";
-    if(password==""){
-        errorMessage="*Field can't be empty";
-        flagPassword=false;
-    }
-    else if(checkForSpaces(password)==true){
-        errorMessage="*Space is not allowed";
-        flagPassword=false;
-    }
-    else if((password.length)<8 || (password.length)>15){
-        errorMessage="*Password can't be less than 8 and greather than 15 character";
-        flagPassword=false;
-    }
-    else {
-        errField.innerHTML=errorMessage;
-        flagPassword=true;
-    }
-    errField.innerHTML=errorMessage;
-}
-
-function validDate(){
-    let start=document.getElementById("sdate").value;
-    let due=document.getElementById("ddate").value;
-    let message=document.getElementById("errdue");
-    message.innerHTML="";
-    if(start>due && start!="" && due!=""){
-        flagValidDate=true;
-        message.innerHTML=`Due date should be greather than start date : ${start}`;
-    }
-    else{
-        flagValidDate=false;
-    }
-}
-
-
-
-function checkForSpaces(text){
-    let pattern=/\s/;
-    return pattern.test(text);
-}
