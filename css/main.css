@@ -77,7 +77,7 @@ margin:0px 5px;
 height:30px;
 }
 .main-height{
-    height:387px;
+    min-height:387px;
     padding-bottom:0px;
 }
 .table-container{
@@ -145,8 +145,11 @@ td,th{
     width:100px;
 }
 
-.display-status{
-    display: none;
+.display-off{
+    display:none;
+}
+.display-on{
+    display:block;
 }
 
 .infomessage{

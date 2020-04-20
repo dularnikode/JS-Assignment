@@ -9,8 +9,6 @@ var todo=(function(){
 
     /**check of pending & done*/
     var CheckAllDone=function(){
-        user=LocalStorage.getUser();
-        arr=user.todotask;
         let i;
         let countDonePending=[0,0];//element0 =done and element 1=pending
         for(i=0;i<arr.length;i++){
@@ -63,13 +61,17 @@ var todo=(function(){
     /*showing Todo */
     var showtodo = function(){
         node =document.getElementById("todotable");
-        document.getElementById("multipleDelButton").style.display="none";
-        document.getElementById("multipleDoneButton").style.display="none";
+        document.getElementById("multipleDelButton").classList.remove("display-on");
+        document.getElementById("multipleDoneButton").classList.remove("display-on");
+        document.getElementById("multipleDelButton").classList.add("display-off");
+        document.getElementById("multipleDoneButton").classList.add("display-off");
         if(arr.length<=1){
-            document.getElementById("commonCheckbox").style.display="none";
+            document.getElementById("commonCheckbox").classList.remove("display-checkbox");
+            document.getElementById("commonCheckbox").classList.add("display-off");
         }
         else{
-            document.getElementById("commonCheckbox").style.display="inline-block";
+            document.getElementById("commonCheckbox").classList.remove("display-off");
+            document.getElementById("commonCheckbox").classList.add("display-checkbox");
         }
         node.innerHTML="";
         let i;
@@ -87,10 +89,12 @@ var todo=(function(){
         }  
         let DonePending=CheckAllDone();//element 0 =done and element 1=pending
         if (DonePending[0]>1){
-            document.getElementById("multipleDelButton").style.display="block";
+            document.getElementById("multipleDelButton").classList.remove("display-off");
+            document.getElementById("multipleDelButton").classList.add("display-on");
         }
         if(DonePending[1]>0){
-            document.getElementById("multipleDoneButton").style.display="block";
+            document.getElementById("multipleDoneButton").classList.remove("display-off");
+            document.getElementById("multipleDoneButton").classList.add("display-on");
         }
         if(DonePending[1]==0 && DonePending[0]==0)
         {
@@ -161,38 +165,29 @@ var todo=(function(){
             for(i=0;i<arr.length;i++)
             {
                 if(arr[i].Category==filterClass)
-            {   
-                count+=1;  
-                flagCategoryfound="true";
-                if(arr[i].Status=="Done"){
-                        scriptButton="<td><input type='button' id='button-del' class='button-del delete-button' onclick='todo.deleteSingleToDo("+i+")' value='Delete'></td>";              
+                {   
+                    count+=1;  
+                    flagCategoryfound="true";
+                    if(arr[i].Status=="Done"){
+                            scriptButton="<td><input type='button' id='button-del' class='button-del delete-button' onclick='todo.deleteSingleToDo("+i+")' value='Delete'></td>";              
                     }
                     else if(arr[i].Status=="Pending")
                     {
                         scriptButton="<td><input type='button' class='button-edit' onclick='todo.editToDo("+i+")' value='Edit'></td>";
                     }
-                    const row=document.createElement("tr");
-                    let checkbox='<input type="checkbox" class="checkbox">';
-                    const dataitem=
-                        "<td>"+checkbox+"</td>"+
-                        "<td>"+arr[i].Title+"</td>"+
-                        "<td>"+arr[i].Category+"</td>"+
-                        "<td>"+arr[i].Description+"</td>"+
-                        "<td>"+arr[i].Status+"</td>"+
-                        "<td>"+arr[i].Start+"</td>"+
-                        "<td>"+arr[i].Due+"</td>"+
-                        scriptButton;
-                    row.innerHTML=dataitem;
-                    todoTable.appendChild(row);
-                }       
+                    appendData();
+                }    
+                       
             }
+
             if(count<=1){
-                document.getElementById("commonCheckbox").style.display="none";
+                document.getElementById("commonCheckbox").classList.remove("display-checkbox");
+                document.getElementById("commonCheckbox").classList.add("display-off");
             }
             else{
-                document.getElementById("commonCheckbox").style.display="inline-block";
+                document.getElementById("commonCheckbox").classList.remove("display-off");
+                document.getElementById("commonCheckbox").classList.add("display-checkbox");
             }
-        
             if(flagCategoryfound==false){
                 document.getElementById("showInfoMessage").innerHTML=`NO TODO SEEN of category ${filterClass}! Please Add TODO`;
             }

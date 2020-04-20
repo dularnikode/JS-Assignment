@@ -15,7 +15,7 @@ var LocalStorage=(function(){
     return {
         getUser:getUser,
         setUser:setUser,
-    }
+    };
 })();
 
 
