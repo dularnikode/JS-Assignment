@@ -45,7 +45,7 @@ var login =(function(){
         document.getElementById("logUserError").innerHTML="";
         document.getElementById("logPassError").innerHTML="";
         try{
-            let user=LocalStorage.setData(uid);//from module LocalStorage
+            let user=LocalStorage.getData(uid);//from module LocalStorage
             if(user.userNames==uid)
             {
                 if(user.passwords==pass)
