@@ -1,22 +1,10 @@
 
-
-
 /*Login Module*/
 var login =(function(){
     let uid;
     let pass;
 
-/*Fallback scenario*/
-    (function(){
-        var test = 'test';
-        try {
-            localStorage.setItem(test, test);
-            localStorage.removeItem(test);
-        } catch(e) {
-            alert("Local Storage is not availabel")
-        }
 
-    })();
 
     /*check username and password field are empty or not */
     var _checkUserPassword=function (){
@@ -57,13 +45,13 @@ var login =(function(){
         document.getElementById("logUserError").innerHTML="";
         document.getElementById("logPassError").innerHTML="";
         try{
-            let user=JSON.parse(localStorage.getItem(uid));
+            let user=LocalStorage.setData(uid);//from module LocalStorage
             if(user.userNames==uid)
             {
                 if(user.passwords==pass)
                 {
                     document.getElementById('error').innerHTML=errorMessage; 
-                    sessionStorage.setItem('userid',uid);
+                    SessionStorage.setData('userid',uid);//from module SessionStorage
                     window.location.href="../html/main.html";
                     alert(`${uid} you logged in sucessfully`);
                 }

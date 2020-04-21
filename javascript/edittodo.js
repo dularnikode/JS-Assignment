@@ -1,5 +1,4 @@
-checklogin();
-
+SessionStorage.checklogin();
 var editToDo=(function(){
     let i=sessionStorage.getItem('index');
     let user=LocalStorage.getUser();
@@ -21,6 +20,10 @@ var editToDo=(function(){
         if(user.todotask[i]=="" ||user.todotask[i].Start=="" || user.todotask[i].Due==""){
             alert("*Please fill required details");  
         }
+        else if(Validation.validDate()){
+            console.log("Invalid dates");
+            alert("Please fill valid details");
+        }
         else{
             LocalStorage.setUser(user);
             alert("Edited Sucessfully");
@@ -36,16 +39,3 @@ var editToDo=(function(){
     }
 
 })();
-
-
-
-
-function validDate(){
-    let start=document.getElementById("sdate").value;
-    let due=document.getElementById("ddate").value;
-    let message=document.getElementById("errdue");
-    message.innerHTML="";
-    if(start>due){
-        message.innerHTML=`Due date should be greather than start date : ${start}`;
-    }
-}

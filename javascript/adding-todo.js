@@ -1,8 +1,8 @@
-checklogin();
+SessionStorage.checklogin();
 /*Module todo*/
 var todo=(function(){
 
-    let user=LocalStorage.getUser();
+    let user=LocalStorage.getUser();//from module LocalStorage
     let arr=user.todotask;
     let scriptButton="";
     let node;
@@ -40,12 +40,12 @@ var todo=(function(){
         if(title=="" || start=="" || due==""){
         alert("*Please fill required details");  
         }
-        else if(flagValidDate==true){
+        else if(Validation.validDate()){
             alert("Please fill valid details");
         }
         else{
             user.todotask.push(todoObj);
-            LocalStorage.setUser(user);
+            LocalStorage.setUser(user);//from module LocalStorage
             alert("Todo added Sucessfully");
             let gotoMain=confirm("Add Another Todo?");
             if (gotoMain==true){
@@ -56,6 +56,23 @@ var todo=(function(){
             }
         }
 
+    };
+
+    /**Append the HTML in tabel */
+    var appendData =function(i){
+        const row=document.createElement("tr");
+        let checkbox='<input type="checkbox" class="checkbox">';
+        const dataitem=
+            "<td>"+checkbox+"</td>"+
+            "<td>"+arr[i].Title+"</td>"+
+            "<td>"+arr[i].Category+"</td>"+
+            "<td class='elip-description'>"+arr[i].Description+"</td>"+
+            "<td>"+arr[i].Status+"</td>"+
+            "<td>"+arr[i].Start+"</td>"+
+            "<td>"+arr[i].Due+"</td>"+
+            scriptButton;
+        row.innerHTML=dataitem;
+        node.appendChild(row);
     };
 
     /*showing Todo */
@@ -102,27 +119,10 @@ var todo=(function(){
         }
     }; 
 
-    /**Append the HTML in tabel */
-    var appendData =function(i){
-        const row=document.createElement("tr");
-        let checkbox='<input type="checkbox" class="checkbox">';
-        const dataitem=
-            "<td>"+checkbox+"</td>"+
-            "<td>"+arr[i].Title+"</td>"+
-            "<td>"+arr[i].Category+"</td>"+
-            "<td class='elip-description'>"+arr[i].Description+"</td>"+
-            "<td>"+arr[i].Status+"</td>"+
-            "<td>"+arr[i].Start+"</td>"+
-            "<td>"+arr[i].Due+"</td>"+
-            scriptButton;
-        row.innerHTML=dataitem;
-        node.appendChild(row);
-    };
-
     /**Delete Single Todo*/
     var deleteSingleToDo = function(i){
         user.todotask.splice(i,1);
-        LocalStorage.setUser(user);
+        LocalStorage.setUser(user);//from module LocalStorage
         showtodo();
     };
 
@@ -145,7 +145,7 @@ var todo=(function(){
             return element !== undefined;
         });
         user.todotask=arr;
-        LocalStorage.setUser(user);
+        LocalStorage.setUser(user);//from module LocalStorage
         showtodo();
     };
 
@@ -175,7 +175,7 @@ var todo=(function(){
                     {
                         scriptButton="<td><input type='button' class='button-edit' onclick='todo.editToDo("+i+")' value='Edit'></td>";
                     }
-                    appendData();
+                    appendData(i);
                 }    
                        
             }
@@ -200,7 +200,7 @@ var todo=(function(){
     
     /**On click done*/
     var markDone= function(){
-        user=LocalStorage.getUser();
+        user=LocalStorage.getUser();//from module LocalStorage
         arr=user.todotask;
         let i;
         let x=document.getElementsByClassName("checkbox");
@@ -214,7 +214,7 @@ var todo=(function(){
             }
         }
         user.todotask=arr;
-        LocalStorage.setUser(user);
+        LocalStorage.setUser(user);//from module LocalStorage
         showtodo();    
     };
 
@@ -235,7 +235,7 @@ var todo=(function(){
         }
     };
     var editToDo=function(i){
-        let index=sessionStorage.setItem('index',i);
+        SessionStorage.setData('index',i);//from module SessionStorage
         window.location.href="../html/edittodo.html";
     }
 
@@ -249,7 +249,6 @@ var todo=(function(){
         deleteSingleToDo:deleteSingleToDo,
         editToDo:editToDo,
         deleteToDo:deleteToDo
-
     };
 
 })();

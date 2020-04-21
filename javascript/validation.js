@@ -1,8 +1,15 @@
 /*Module Validation */
 var Validation=(function(){
     
+    /**Validation Global flags*/
+    let flagFirstname=false;
+    let flagLastname=false;
+    let flagUsername=false;
+    let flagPassword=false;
+    let flagValidDate=false;
+
+
     let firstName,lastName,userName,password,start,due;
-    let errField;
     let errorMessage="";
     var _checkForSpaces=function(text){
         let pattern=/\s/;
@@ -19,7 +26,7 @@ var Validation=(function(){
         imagereader.onload = function ()
         {
             let imgdata = imagereader.result;
-            sessionStorage.setItem("displayImage", imgdata);
+            SessionStorage.setData("displayImage", imgdata);//from module SessionStorage;
             document.getElementById("profileImage").src = imgdata;
         };
         
@@ -50,6 +57,8 @@ var Validation=(function(){
             flagFirstname=true;
         }
         errField.innerHTML=errorMessage;
+        errorMessage="";
+        return flagFirstname;
     };
 
     /*Validation for lastName*/
@@ -74,6 +83,8 @@ var Validation=(function(){
             flagLastname=true;
         }
         errField.innerHTML=errorMessage;
+        errorMessage="";
+        return flagLastname;
     };
 
     /*validation for userName*/
@@ -101,6 +112,7 @@ var Validation=(function(){
             flagUsername=true;
         }
         errField.innerHTML=errorMessage;
+        errorMessage="";
     };
 
     /*validation for Password */
@@ -124,6 +136,8 @@ var Validation=(function(){
             flagPassword=true;
         }
         errField.innerHTML=errorMessage;
+        errorMessage="";
+        return flagPassword;
     };
 
     /*validation for start and end date of task*/
@@ -139,6 +153,7 @@ var Validation=(function(){
         else{
             flagValidDate=false;
         }
+        return flagValidDate;
     };
 
     /*On clik function for sign up*/
@@ -164,7 +179,7 @@ var Validation=(function(){
             gender="Male";
         }
 
-        let exeUser=JSON.parse(localStorage.getItem(userName));
+        let exeUser=LocalStorage.getData(userName);//from module LocalStorage
         console.log(exeUser);
         try{
             if(exeUser.userNames==userName){
@@ -175,12 +190,10 @@ var Validation=(function(){
         {
             console.log("new user signup");
         }
-        
+        _validuName();
         validPassword();
         validfName();
         validlName();
-        _validuName();
-
         if(exeUser==null){
             document.getElementById("exeuserError").innerHTML="";
             if(firstName=="" || lastName=="" || userName=="" || password=="" || gender=="")
@@ -190,7 +203,7 @@ var Validation=(function(){
             else if(flagFirstname && flagLastname && flagPassword && flagUsername)
             {
                 console.log(firstName,lastName,address,userName,password,profileImage,gender);
-                let profilesrc=sessionStorage.getItem("displayImage");
+                let profilesrc=SessionStorage.getData("displayImage");//from module SessionStorage
                 sessionStorage.removeItem("displayImage");
                 let user={
                     userNames:userName,
@@ -202,8 +215,8 @@ var Validation=(function(){
                     profileImages:profilesrc,
                     todotask:[],
                 };
-                localStorage.setItem(userName,JSON.stringify(user));
-                let data=JSON.parse(localStorage.getItem(userName));
+                LocalStorage.setData(userName,user); //from module LocalStorage
+                let data=LocalStorage.getData(userName); //from module LocalStorage
                 console.log(data);
                 alert(`${firstName} you signed in sucessfully`);
                 let a=confirm("Do you want to login ?");
@@ -211,10 +224,6 @@ var Validation=(function(){
             }
             else{
                 alert("*Please fill valid details");
-                validuName();
-                validPassword();
-                validfName();
-                _validlName();
             }
 
         }

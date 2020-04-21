@@ -1,4 +1,4 @@
-checklogin();
+SessionStorage.checklogin();
 /*Profie Module */
 var profile=(function(){
     let user=LocalStorage.getUser();
@@ -42,10 +42,10 @@ var profile=(function(){
 
     /**Save changed data*/
     var adding=function(){
-        Validation.validPassword();
-        Validation.validfName();
-        Validation.validlName();
-        if(flagFirstname && flagLastname && flagPassword)
+        let flagPassword=Validation.validPassword();
+        let flagFName=Validation.validfName();
+        let flagLName=Validation.validlName();
+        if(flagFName && flagLName && flagPassword)
         {
             user.firstNames=document.getElementById("fname").value;
             user.lastNames=document.getElementById("lname").value;
@@ -83,9 +83,6 @@ var profile=(function(){
         }
         else{
             alert("*Please fill valid details");
-            Validation.validPassword();
-            Validation.validfName();
-            Validation.validlName();
         }
     };
 
