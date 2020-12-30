@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO | Do not forget</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css"> 
+        <link rel="stylesheet" href="../css/signup.css">
+    </head>
+    <body>
+        <header class="header-wrapper">
+            <h2 class="heading-logo">TODO </h2>
+            <div class="head-button-container">
+                <a href="index.html"><button class="com-button button-login-signup">Login</button></a>
+            </div>
+            <div class="clear"></div>
+        </header>
+        <section class="section-one-wrapper section-signup">
+            <div class="signup-page">
+                <h2 class="reg-details">Register your details<h2>
+                <!-- <form  onsubmit="return false"> -->
+                    <label><span class="error">*</span>First Name</label>
+                    <input type="text" id="fname" autocomplete="off">
+                    <span id="fnameError" class="error"></span>
+
+                    <label><span class="error">*</span>Last Name</label>
+                    <input type="text" id="lname" minlength="2" >
+                    <span id="lnameError" class="error"></span>
+
+                    <label><span class="error">*</span>Username</label>
+                    <input type="text" id="username" placeholder="Enter Username">
+                    <span id="usernameError" class="error"></span>
+
+                    <label><span class="error">*</span>Password</label>
+                    <input type="password" id="password" placeholder="Enter Password">
+                    <span id="passwordError" class="error"></span>
+
+                    <label><span class="error">*</span>Gender</label>
+                    <input class="radio-input" type="radio" id="male" name="gender" value="Male">
+                    <label class="radio-input" for="male">Male</label class>
+                    <input class="radio-input" type="radio" id="female" name="gender" value="Female">
+                    <label class="radio-input" for="female">Female</label>
+
+                    <label>Address</label>
+                    <input type="text-field" placeholder="Address" id="address">
+                    <label>Profile photo</label>
+                    <img id="profileImage"  class="profileImage" src="../images/default_user.jpg">
+                    <input type="file" id="profilephoto" accept="image/*" onchange="Validation.changeProfilePic(event)">
+                    <span id="exeuserError" class="error"></span>
+                    <input type="button" class="com-button input-save" onclick="Validation.submitSignUp()" value="SignUp">
+                <!-- </form> -->
+            </div>
+        </section>
+       
+        <footer class="section-footer footer-signup">
+            <div>
+                <p class="foot-para">&copy2020 TODO. All Rights Reserved</p>
+            <div>
+        </footer>
+        <script src="../javascript/controller.js"></script>
+        <script src="../javascript/validation.js"></script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO | Do not forget</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css"> 
+        <link rel="stylesheet" href="../css/login.css">
+    </head>
+    <body>
+        <header class="header-wrapper">
+            <h2 class="heading-logo">TODO </h2>
+            <div class="head-button-container">
+                <a href="signup.html"><button class="com-button button-login-signup">SIGNUP</button></a>
+            </div>
+            <div class="clear"></div>
+        </header>
+        <section class="section-one-wrapper section-login">
+            <div class="login-page">
+                <form action="#" onsubmit="return false">
+                    <label for="username">Username</label>
+                    <input class="input-username" type="text" id="username" name="username">
+                    <span id="logUserError" class="error"></span>
+                    <label>Password</label>
+                    <input class="input-password" type="password" id="password" name="password">
+                    <span id="logPassError" class="error"></span>
+                    <p id="error" class="error"></p>
+                    <input type="submit" class="com-button input-login" value="Login" onclick='login.userLogin()'>
+                </form>
+                <p class="no-account">Don't have an account ?<span><a href="signup.html">Sign Up</a></span></p>
+            </div>
+        </section>
+        <footer class="section-footer">
+            <div>
+                <p class="foot-para">&copy2020 TODO. All Rights Reserved</p>
+            <div>
+        </footer>
+        <script src="../javascript/controller.js"></script> 
+        <script src="../javascript/login-todo.js"></script>
+    </body>
+</html>

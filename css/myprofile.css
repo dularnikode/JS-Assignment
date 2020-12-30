@@ -1,0 +1,59 @@
+.section-myprofile{
+    background-image: url(../images/nWHPe3g-space-wallpaper-1366x768.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.profile-photo{
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    padding:5px;
+    background-color: black;
+    margin-bottom: 5px;
+}
+.input-profileimage{
+    width:40%;
+    position:absolute;
+}
+
+.profile-page{
+    width:70%;
+    background-color:rgba(232, 229, 241, 0.55);
+    padding:50px 100px;
+    margin:0px auto;
+    border-radius: 10px;    
+}
+
+.profile-footer{
+    margin-top:0px;
+}
+.myprofile-form{
+    position: relative;
+}
+
+.name-container{
+    float: right;
+    width:50%;
+    padding:0px 10px;
+}
+
+.input-edit{
+width:20%;
+margin-top:15px;
+}
+
+.rem-details{
+    margin-top:40px;
+}
+
+.mytodo{
+    margin-right: 10px;
+}
+.radio-input{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    font-size: 20px;
+}
