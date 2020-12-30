@@ -1,0 +1,168 @@
+
+li{
+    margin-bottom:5px;
+    background-color: #2668aa;
+    padding:5px;
+}
+
+li:hover{
+   box-shadow:0 0 3px #2668aa; 
+}
+.profile-wrapper{
+    position: relative;
+    width:auto;
+}
+
+.profile{
+    border-radius: 50%;
+    border:3px solid royalblue;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    float:left;
+}
+
+.profile-wrapper:hover .profile-list{
+    display:block;
+}
+
+.profile-list{
+    display:none;
+    position: absolute;
+    width:150px;
+    top: 0px;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    right:-10px;
+}
+
+
+.anchor{
+    color:white ;
+    text-decoration: none;
+    background-color: teal;
+
+}
+.filter{
+    height:30px;
+    border:none;
+    font-size: 18px;
+}
+.main-container{
+    width:71%;
+    margin:0px auto;
+    margin-bottom:90px;
+    padding-bottom:30px;
+}
+
+.header-list{
+    height:50px;
+    background-color:#2668aa;
+    top:0px;
+    padding:10px 10px
+}
+
+.filter-label{
+    width:30px;
+    line-height: 30px;
+    margin:0px;
+}
+
+
+.input-filter{
+width:70px;
+font-size: 18px;
+float: left;
+margin:0px 5px;    
+height:30px;
+}
+.main-height{
+    min-height:387px;
+    padding-bottom:0px;
+}
+.table-container{
+    padding:30px;
+    margin:0px auto;
+    border:2px solid black;
+    width:100%;
+
+}
+
+.todo-add-button{
+    width:100px;
+    height:30px;
+    border-radius: 5px;
+    float:right;
+    margin:0px 5px;
+    border:none;
+    color:white;
+    background-color:#48d835;
+    cursor: pointer;
+    font-size: 18px;
+}
+.delete-button{
+    background-color: red;
+}
+
+tr{
+    border-bottom: 2px solid black;
+    background-color: aqua;
+}
+
+tr:last-child{
+    border-bottom: 0px;
+}
+th{
+    background-color:black;
+    color:white;
+}
+
+
+td,th{
+    padding:15px;
+    text-align: center;
+}
+.button-edit, .button-del{
+    padding:5px;
+    margin:5px 0px;
+    color:white;
+    cursor: pointer;
+}
+
+
+.button-edit{
+    background-color:#48d835;
+}
+.checkbox{
+    width:20px;
+    height:20px;
+    margin:0px auto;
+}
+
+.elip-description{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    width:100px;
+}
+
+.display-off{
+    display:none;
+}
+.display-on{
+    display:block;
+}
+
+.infomessage{
+    text-align: center;
+    padding:20px 0px;
+}
+
+
+.common-checkbox{
+   width:15px;
+   height:15px;
+}
+
+.display-checkbox{
+    display: inline-block;
+}

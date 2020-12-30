@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO | Do not forget</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css"> 
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/addtodo.css">
+    </head>
+    <body>
+        <header class="header-wrapper">
+            <h2 class="heading-logo">TODO </h2>
+            <div class="head-button-container profile-wrapper">
+                
+                <img id="profile" class="profile" src="../images/default_user.jpg">
+                <span id="showuserName" style="display:block;"></span>
+                <ul class="profile-list">
+                    <a class="anchor" href="myprofile.html"><li>My Profile</li></a>
+                    <a class="anchor" href="main.html"><li>My Todo</li></a>
+                    <a class="anchor" href="index.html" onclick="SessionStorage.clearLog()"><li >Logout</li></a>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </header>
+        <section class="section-one-wrapper">
+            <div class="new-todo-container">
+                <form>
+                    <label><span class="error">*</span>Title</label>
+                    <input id="title" type="text">
+                    <span id="errtitle" class="error"></span>
+                    <div class="half-container left-half">
+                        <label for="category">Category</label>
+                        <select id="category" class="category-selection">                            
+                            <option>Office</option>
+                            <option>Personal</option>
+                            <option>Social</option>
+                        </select>
+                    </div>
+                    <div class="clear"></div>
+                    <label>Description</label>
+                    <input type="text" id="des">
+                    <div class="half-container left-half">
+                        <label><span class="error">*</span>Start Date</label>                        
+                        <input type="date" id="sdate" oninput="validDate()">
+                    </div>
+                    <div class="half-container">
+                        <label><span class="error">*</span>Due Date</label>
+                        <input type="date" id="ddate" oninput="validDate()">
+                    </div>
+                    <div class="clear"></div>
+                    <span id="errdue" class="error"></span>
+                    <input type="button" class="com-button save-todo" onclick="editToDo.saveEdited()" value="save">    
+                </form>
+            </div>
+        </section>
+        <footer class="section-footer">
+            <div>
+                <p class="foot-para">&copy2020 TODO. All Rights Reserved</p>
+            <div>
+        </footer>
+        <script src="../javascript/controller.js"></script>
+        <script src="../javascript/validation.js"></script> 
+        <script src="../javascript/edittodo.js"></script>
+    </body>
+</html>

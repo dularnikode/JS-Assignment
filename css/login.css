@@ -1,0 +1,33 @@
+
+.login-page{
+width:30%;
+padding:30px 40px;
+background-color:rgb(30, 189, 189);
+margin:0px auto;
+border-radius: 10px;
+}
+
+
+
+
+.input-password{
+
+}
+.input-username{
+
+}
+
+.input-login{
+width:40%;
+border:none;
+border-radius: 5px;
+font-weight: 300;
+}
+
+.no-account{
+    margin-top:10px;
+}
+
+.section-login{
+    padding:80px 0px 0px 0px;
+}

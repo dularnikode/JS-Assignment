@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO | Do not forget</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css"> 
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/myprofile.css">
+    </head>
+    <body>
+        <header class="header-wrapper">
+            <h2 class="heading-logo">TODO </h2>
+            <div class="head-button-container profile-wrapper">
+                <img id="profile" class="profile" src="../images/default_user.jpg">
+                <span id="showuserName" style="display:block;"></span>
+                <ul class="profile-list">
+                    <a class="anchor" href="myprofile.html"><li>My Profile</li></a>
+                    <a class="anchor" href="main.html"><li>My Todo</li></a>
+                    <a class="anchor" href="index.html" onclick="SessionStorage.clearLog()"><li >Logout</li></a>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </header>
+        <section class="section-one-wrapper section-myprofile">
+            <div class="profile-page">
+                <form action="#" method="POST" class="myprofile-form">
+                
+                    <img  id="profilepic"class="profile-photo" src="../images/default_user.jpg" alt="default_user">
+                    <div class="input-profileimage">
+                        <input type="file"  id="profilephoto" accept="image/*" onchange="profile.changeProfilePic(event)">
+                    </div>
+                    <div class="name-container">
+                        <label><span class="error">*</span>First Name</label>
+                        <input id="fname" type="text">
+                        <span id="fnameError" class="error"></span>
+                        <label><span class="error">*</span>Last Name</label>
+                        <input id="lname" type="text">
+                        <span id="lnameError" class="error"></span>
+                    </div>
+                    <div class="rem-details">
+                        <label><span class="error">*</span>Username</label>
+                        <input id="username" class="input-username" type="text" disabled>
+                        <span id="usernameError" class="error"></span>
+                        
+                        <label><span class="error">*</span>Password</label>
+                        <input id="password" class="input-password" type="text">
+                        <span id="passwordError" class="error"></span>
+                        
+
+                        <label><span class="error">*</span>Gender</label>
+                        <input class="radio-input" type="radio" id="male" name="gender" value="Male">
+                        <label class="radio-input" for="male">Male</label class>
+                        <input class="radio-input" type="radio" id="female" name="gender" value="Female">
+                        <label class="radio-input" for="female">Female</label>
+                        <label >Address</label>
+                        <input id="address" type="text">
+                    </div>
+                    <input class="com-button input-edit" type="button" value="Edit" onclick="profile.adding()">
+                </form>
+            </div>
+        </section>
+        <footer class="section-footer profile-footer">
+            <div>
+                <p class="foot-para">&copy2020 TODO. All Rights Reserved</p>
+            <div>
+        </footer>
+        <script src="../javascript/controller.js"></script> 
+        <script src="../javascript/validation.js"></script> 
+        <script src="../javascript/my-profile.js"></script> 
+        <footer class="footer"></footer class="footer">
+    </body>
+</html>
